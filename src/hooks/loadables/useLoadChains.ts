@@ -13,7 +13,7 @@ const getConfigs = async (): Promise<ChainInfo[]> => {
       bitlayerConfig
     ]
   };
-  return data.results || [];
+  return (data.results as any) || [];
 };
 
 export const useLoadChains = (): AsyncResult<ChainInfo[]> => {

@@ -187,10 +187,11 @@ export const useInitOnboard = () => {
     if (!onboard || !chain) return
 
     const enableWallets = async () => {
-      const { getSupportedWallets } = await import('@/hooks/wallets/wallets')
-      const supportedWallets = getSupportedWallets(chain)
-      onboard.state.actions.setWalletModules(supportedWallets)
-    }
+      const { getSupportedWallets } = await import('@/hooks/wallets/wallets');
+      const supportedWallets = await getSupportedWallets(chain);
+      // 类型断言，告诉编译器supportedWallets是一个WalletModule[]类型的数组
+      onboard.state.actions.setWalletModules(supportedWallets as any);
+    };
 
     enableWallets().then(() => {
       // e2e wallet

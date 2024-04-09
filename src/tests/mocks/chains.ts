@@ -1,7 +1,6 @@
-import type { ChainInfo } from '@safe-global/safe-gateway-typescript-sdk'
 import { FEATURES, GAS_PRICE_TYPE, RPC_AUTHENTICATION } from '@safe-global/safe-gateway-typescript-sdk'
 
-const CONFIG_SERVICE_CHAINS: ChainInfo[] = [
+const CONFIG_SERVICE_CHAINS: any[] = [
   {
     transactionService: 'https://safe-transaction.mainnet.gnosis.io',
     chainId: '1',
