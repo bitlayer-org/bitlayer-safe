@@ -1,0 +1,108 @@
+:root {
+  --w3o-background-color: var(--color-background-paper);
+  --w3o-foreground-color: var(--color-border-light);
+  --w3o-text-color: var(--color-text-primary);
+  --w3o-border-color: var(--color-border-light);
+  --w3o-action-color: var(--color-primary-main);
+  --w3o-border-radius: 6px;
+  --w3o-font-family: DM Sans, sans-serif;
+
+  --onboard-border-radius-1: var(--w3o-border-radius);
+  --onboard-border-radius-2: var(--w3o-border-radius);
+  --onboard-border-radius-3: var(--w3o-border-radius);
+
+  /* Palette */
+  --onboard-white: var(--color-background-paper);
+  --onboard-black: var(--color-text-primary);
+
+  --onboard-primary-1: var(--color-secondary-main);
+  --onboard-primary-100: var(--color-secondary-background);
+  --onboard-primary-200: var(--color-primary-light);
+  --onboard-primary-300: var(--color-primary-light);
+  --onboard-primary-400: var(--color-primary-light);
+  --onboard-primary-500: var(--color-primary-main);
+  --onboard-primary-600: var(--color-primary-main);
+  --onboard-primary-700: var(--color-secondary-main);
+
+  --onboard-gray-100: var(--color-border-light);
+  --onboard-gray-200: var(--color-border-main);
+  --onboard-gray-300: var(--color-primary-light);
+  --onboard-gray-400: var(--color-primary-main);
+  --onboard-gray-500: var(--color-primary-main);
+  --onboard-gray-600: var(--color-border-main);
+  --onboard-gray-700: var(--color-text-primary);
+
+  --onboard-success-100: var(--color-secondary-background);
+  --onboard-success-600: var(--color-secondary-light);
+  --onboard-success-700: var(--color-success-dark);
+
+  --onboard-danger-500: var(--color-error-main);
+  --onboard-danger-600: var(--color-error-main);
+  --onboard-danger-700: var(--color-error-dark);
+
+  --onboard-warning-100: var(--color-error-background);
+  --onboard-warning-400: var(--color-error-light);
+  --onboard-warning-500: var(--color-error-light);
+  --onboard-warning-600: var(--color-error-main);
+  --onboard-warning-700: var(--color-error-dark);
+
+  /* Connect modal */
+  --onboard-modal-z-index: 1301;
+
+  --onboard-modal-backdrop: rgba(99, 102, 105, 0.75);
+
+  --onboard-modal-border-radius: var(--w3o-border-radius);
+
+  --onboard-connect-sidebar-progress-background: var(--color-border-main);
+
+  --onboard-link-color: var(--color-primary-main);
+
+  --onboard-wallet-app-icon-border-color: var(--color-border-light);
+  --onboard-wallet-app-icon-background-transparent: rgba(255, 255, 255, 0.2);
+  --onboard-wallet-app-icon-background-light-gray: rgba(255, 255, 255, 0.5);
+
+  --onboard-wallet-button-border-radius: var(--w3o-border-radius);
+  --onboard-wallet-button-background-hover: var(--color-background-light);
+
+  /* Account select (modal) */
+
+  --account-select-white: var(--onboard-white);
+  --account-select-black: var(--onboard-black);
+
+  --account-select-primary-100: var(--onboard-primary-100);
+  --account-select-primary-200: var(--onboard-primary-200);
+  --account-select-primary-300: var(--onboard-primary-300);
+  --account-select-primary-500: var(--onboard-primary-500);
+  --account-select-primary-600: var(--onboard-primary-600);
+
+  --account-select-gray-100: var(--onboard-gray-100);
+  --account-select-gray-200: var(--onboard-gray-200);
+  --account-select-gray-300: var(--onboard-gray-300);
+  --account-select-gray-500: var(--onboard-gray-500);
+  --account-select-gray-700: var(--onboard-gray-700);
+
+  --account-select-danger-500: var(--onboard-danger-500);
+
+  --onboard-account-select-modal-z-index: 1301;
+}
+
+#walletconnect-qrcode-modal {
+  padding: 20px !important;
+}
+
+#walletconnect-wrapper {
+  color: #162d45;
+}
+
+#walletconnect-wrapper .walletconnect-modal__footer {
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+/* Keystone modal */
+#kv_sdk_container + .ReactModalPortal > div {
+  z-index: 1301 !important;
+}
+#kv_sdk_container + .ReactModalPortal .ReactModal__Content {
+  padding: 0 !important;
+}

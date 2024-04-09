@@ -1,0 +1,17 @@
+.listItem {
+  border-color: transparent;
+}
+
+.closed:hover,
+.batched {
+  background-color: var(--color-secondary-background);
+  border-color: var(--color-secondary-light);
+}
+
+.expanded {
+  border-color: var(--color-secondary-light) !important;
+}
+
+.expanded :global .MuiAccordionSummary-root {
+  background-color: var(--color-secondary-background);
+}

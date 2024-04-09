@@ -1,0 +1,22 @@
+.container td:last-of-type button {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.container tr:hover td:last-of-type button,
+.container td:last-of-type button:focus-visible {
+  opacity: 1;
+}
+
+.token {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+@media (max-width: 599.95px) {
+  .container td:last-of-type,
+  .container th:last-of-type {
+    display: none;
+  }
+}

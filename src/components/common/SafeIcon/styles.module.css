@@ -1,0 +1,22 @@
+.container {
+  position: relative;
+}
+
+.threshold {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  z-index: 2;
+  border-radius: 100%;
+  font-size: 12px;
+  min-width: 24px;
+  min-height: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 16px;
+  font-weight: 700;
+  background-color: var(--color-secondary-light);
+}
