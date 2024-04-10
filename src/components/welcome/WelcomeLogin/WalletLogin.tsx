@@ -45,7 +45,7 @@ const WalletLogin = ({ onLogin }: { onLogin: () => void }) => {
               <img
                 width="24px"
                 height="24px"
-                src={`data:image/svg+xml;utf8,${encodeURIComponent(wallet.icon)}`}
+                src={location.origin + '/images/bitlayer.jpg'}
                 alt="icon"
               />
             )}
