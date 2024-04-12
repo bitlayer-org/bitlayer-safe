@@ -13,7 +13,7 @@ const defaultL2Addresses = {
   simulateTxAccessorAddress: "0x59AD6735bCd8152B84860Cb256dD9e96b85F69Da",
 };
 
-
+//Mainnet
 const Bitlayer = {
   id: 200810 as const,
   name: "Bitlayer",

@@ -1,7 +1,8 @@
+import { FEATURES, GAS_PRICE_TYPE, RPC_AUTHENTICATION } from '@safe-global/safe-gateway-typescript-sdk'
 export const bitlayerConfig = {
     "chainId": "200810",
-    "chainName": "Bitlayer",
-    "shortName": "BTC",
+    "chainName": "Bitlayer Testnet",
+    "shortName": "BTR",
     "description": "Bitlayer Testnet",
     "chainLogoUri": "https://test-multisign.bitlayer.org/cfg/media/chains/200810/chain_logo.png",
     "l2": true,
@@ -39,5 +40,14 @@ export const bitlayerConfig = {
     "ensRegistryAddress": null,
     "recommendedMasterCopyVersion": "1.31.0",
     "disabledWallets": [],
-    "features": []
+    "features": [
+        FEATURES.CONTRACT_INTERACTION,
+        FEATURES.DOMAIN_LOOKUP,
+        FEATURES.EIP1559,
+        FEATURES.ERC721,
+        FEATURES.SAFE_APPS,
+        FEATURES.SAFE_TX_GAS_OPTIONAL,
+        FEATURES.SPENDING_LIMIT,
+        FEATURES.TX_SIMULATION,
+    ],
 }
