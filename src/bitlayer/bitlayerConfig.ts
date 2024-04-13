@@ -4,7 +4,7 @@ export const bitlayerConfig = {
     "chainName": "Bitlayer Mainnet",
     "shortName": "BTR",
     "description": "Bitlayer Mainnet",
-    "chainLogoUri": "https://test-multisign.bitlayer.org/cfg/media/chains/200810/chain_logo.png",
+    "chainLogoUri": "https://multisign.bitlayer.org/cfg/media/chains/200901/chain_logo.png",
     "l2": true,
     "isTestnet": false,
     "rpcUri": {
@@ -28,7 +28,7 @@ export const bitlayerConfig = {
         "name": "Bitcoin",
         "symbol": "BTC",
         "decimals": 18,
-        "logoUri": "https://test-multisign.bitlayer.org/cfg/media/chains/200810/currency_logo.png"
+        "logoUri": "https://multisign.bitlayer.org/cfg/media/chains/200901/currency_logo.png"
     },
     "transactionService": "https://multisign.bitlayer.org/txs",
     "vpcTransactionService": "https://multisign.bitlayer.org/txs",
