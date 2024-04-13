@@ -26,7 +26,7 @@ const NetworkSelector = (props: { onChainSelect?: () => void }): ReactElement =>
   const { configs } = useChains()
   const chainId = useChainId()
   const router = useRouter()
-  const effectiveChainId = chainId || 200810;
+  const effectiveChainId = chainId || 200901;
 
   const [testNets, prodNets] = useMemo(() => partition(configs, (config) => config.isTestnet), [configs])
 

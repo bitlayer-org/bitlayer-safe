@@ -15,9 +15,9 @@ const defaultL2Addresses = {
 
 //Mainnet
 const Bitlayer = {
-  id: 200810 as const,
-  name: "Bitlayer",
-  network: "Bitlayer",
+  id: 200901 as const,
+  name: "Bitlayer Mainnet",
+  network: "Bitlayer Mainnet",
   nativeCurrency: {
     decimals: 18,
     name: "Bitcoin",
@@ -25,18 +25,18 @@ const Bitlayer = {
   },
   rpcUrls: {
     default: {
-      http: ["https://testnet-rpc.bitlayer.org"],
+      http: ["https://mainnet-rpc.bitlayer.org"],
     },
     public: {
-      http: ["https://testnet-rpc.bitlayer.org"],
+      http: ["https://mainnet-rpc.bitlayer.org"],
     },
   },
   blockExplorers: {
     etherscan: {
       name: "Explorer",
-      url: "https://testnet-scan.bitlayer.org",
+      url: "https://www.btrscan.com",
     },
-    default: { name: "Explorer", url: "https://testnet-scan.bitlayer.org" },
+    default: { name: "Explorer", url: "https://www.btrscan.com" },
   },
 };
 

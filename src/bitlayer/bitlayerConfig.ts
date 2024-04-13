@@ -1,28 +1,28 @@
-import { FEATURES, GAS_PRICE_TYPE, RPC_AUTHENTICATION } from '@safe-global/safe-gateway-typescript-sdk'
+import { FEATURES } from '@safe-global/safe-gateway-typescript-sdk'
 export const bitlayerConfig = {
-    "chainId": "200810",
-    "chainName": "Bitlayer Testnet",
+    "chainId": "200901",
+    "chainName": "Bitlayer Mainnet",
     "shortName": "BTR",
-    "description": "Bitlayer Testnet",
+    "description": "Bitlayer Mainnet",
     "chainLogoUri": "https://test-multisign.bitlayer.org/cfg/media/chains/200810/chain_logo.png",
     "l2": true,
-    "isTestnet": true,
+    "isTestnet": false,
     "rpcUri": {
         "authentication": "NO_AUTHENTICATION",
-        "value": "https://testnet-rpc.bitlayer.org"
+        "value": "https://mainnet-rpc.bitlayer.org"
     },
     "safeAppsRpcUri": {
         "authentication": "NO_AUTHENTICATION",
-        "value": "https://testnet-rpc.bitlayer.org"
+        "value": "https://mainnet-rpc.bitlayer.org"
     },
     "publicRpcUri": {
         "authentication": "NO_AUTHENTICATION",
-        "value": "https://testnet-rpc.bitlayer.org"
+        "value": "https://mainnet-rpc.bitlayer.org"
     },
     "blockExplorerUriTemplate": {
-        "address": "https://testnet-scan.bitlayer.org/en-us/address/{{address}}",
-        "txHash": "https://testnet-scan.bitlayer.org/en-us/tx/{{txHash}}",
-        "api": "https://testnet-scan.bitlayer.org/en-us/api?module={{module}}&action={{action}}&address={{address}}&apiKey={{apiKey}}"
+        "address": "https://www.btrscan.com/address/{{address}}",
+        "txHash": "https://www.btrscan.com/tx/{{txHash}}",
+        "api": "https://www.btrscan.com/api?module={{module}}&action={{action}}&address={{address}}&apiKey={{apiKey}}"
     },
     "nativeCurrency": {
         "name": "Bitcoin",
@@ -30,8 +30,8 @@ export const bitlayerConfig = {
         "decimals": 18,
         "logoUri": "https://test-multisign.bitlayer.org/cfg/media/chains/200810/currency_logo.png"
     },
-    "transactionService": "https://test-multisign.bitlayer.org/txs",
-    "vpcTransactionService": "https://test-multisign.bitlayer.org/txs",
+    "transactionService": "https://multisign.bitlayer.org/txs",
+    "vpcTransactionService": "https://multisign.bitlayer.org/txs",
     "theme": {
         "textColor": "#ffffff",
         "backgroundColor": "#000000"
@@ -48,6 +48,5 @@ export const bitlayerConfig = {
         FEATURES.SAFE_APPS,
         FEATURES.SAFE_TX_GAS_OPTIONAL,
         FEATURES.SPENDING_LIMIT,
-        FEATURES.TX_SIMULATION,
     ],
 }
