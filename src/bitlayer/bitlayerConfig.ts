@@ -48,6 +48,5 @@ export const bitlayerConfig = {
         FEATURES.SAFE_APPS,
         FEATURES.SAFE_TX_GAS_OPTIONAL,
         FEATURES.SPENDING_LIMIT,
-        FEATURES.TX_SIMULATION,
     ],
 }
