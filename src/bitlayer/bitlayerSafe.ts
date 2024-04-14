@@ -25,10 +25,10 @@ const Bitlayer = {
   },
   rpcUrls: {
     default: {
-      http: ["https://mainnet-rpc.bitlayer.org"],
+      http: ["https://rpc.bitlayer.org"],
     },
     public: {
-      http: ["https://mainnet-rpc.bitlayer.org"],
+      http: ["https://rpc.bitlayer.org"],
     },
   },
   blockExplorers: {

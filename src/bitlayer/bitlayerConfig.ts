@@ -9,20 +9,20 @@ export const bitlayerConfig = {
     "isTestnet": false,
     "rpcUri": {
         "authentication": "NO_AUTHENTICATION",
-        "value": "https://mainnet-rpc.bitlayer.org"
+        "value": "https://rpc.bitlayer.org"
     },
     "safeAppsRpcUri": {
         "authentication": "NO_AUTHENTICATION",
-        "value": "https://mainnet-rpc.bitlayer.org"
+        "value": "https://rpc.bitlayer.org"
     },
     "publicRpcUri": {
         "authentication": "NO_AUTHENTICATION",
-        "value": "https://mainnet-rpc.bitlayer.org"
+        "value": "https://rpc.bitlayer.org"
     },
     "blockExplorerUriTemplate": {
         "address": "https://www.btrscan.com/address/{{address}}",
         "txHash": "https://www.btrscan.com/tx/{{txHash}}",
-        "api": "https://www.btrscan.com/api?module={{module}}&action={{action}}&address={{address}}&apiKey={{apiKey}}"
+        "api": "https://api.btrscan.com/scan/api"
     },
     "nativeCurrency": {
         "name": "Bitcoin",
