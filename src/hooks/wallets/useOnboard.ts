@@ -3,7 +3,6 @@ import { type WalletState, type OnboardAPI } from '@web3-onboard/core'
 import { type ChainInfo } from '@safe-global/safe-gateway-typescript-sdk'
 import type { Eip1193Provider } from 'ethers'
 import { getAddress } from 'ethers'
-// import useChains, { useCurrentChain } from '@/hooks/useChains'
 import { useCurrentChain } from '@/hooks/useChains'
 import ExternalStore from '@/services/ExternalStore'
 import { logError, Errors } from '@/services/exceptions'
@@ -28,7 +27,6 @@ export type ConnectedWallet = {
   balance?: string
 }
 
-// const { getStore, setStore, useStore } = new ExternalStore<OnboardAPI>()
 const { setStore, useStore } = new ExternalStore<OnboardAPI>()
 
 export const initOnboard = async (currentChain: ChainInfo, rpcConfig: EnvState['rpc'] | undefined) => {
@@ -178,6 +176,7 @@ export const useInitOnboard = () => {
       })
     }
   }, [chain, customRpc])
+
   // Disable unsupported wallets on the current chain
   useEffect(() => {
     if (!onboard || !chain) return
@@ -185,7 +184,6 @@ export const useInitOnboard = () => {
     const enableWallets = async () => {
       const { getSupportedWallets } = await import('@/hooks/wallets/wallets');
       const supportedWallets = await getSupportedWallets(chain);
-      // 类型断言，告诉编译器supportedWallets是一个WalletModule[]类型的数组
       onboard.state.actions.setWalletModules(supportedWallets as any);
     };
 
