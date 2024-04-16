@@ -40,7 +40,6 @@ export const useTxActions = (): TxActions => {
   return useMemo<TxActions>(() => {
     const safeAddress = safe.address.value
     const { chainId, version } = safe
-    console.log('即将交易')
 
     const proposeTx = async (sender: string, safeTx: SafeTransaction, txId?: string, origin?: string) => {
       return dispatchTxProposal({
@@ -53,13 +52,11 @@ export const useTxActions = (): TxActions => {
       })
     }
 
-    console.log('准备add')
     const addToBatch: TxActions['addToBatch'] = async (safeTx, origin) => {
       assertTx(safeTx)
       assertWallet(wallet)
       console.log('2')
       const tx = await proposeTx(wallet.address, safeTx, undefined, origin)
-      console.log('txtxtx', tx)
       await addTxToBatch(tx)
       return tx.txId
     }
