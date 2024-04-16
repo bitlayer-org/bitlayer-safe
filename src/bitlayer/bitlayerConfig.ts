@@ -1,37 +1,37 @@
 import { FEATURES } from '@safe-global/safe-gateway-typescript-sdk'
 export const bitlayerConfig = {
-    "chainId": "200901",
-    "chainName": "Bitlayer Mainnet",
+    "chainId": "200810",
+    "chainName": "Bitlayer Testnet",
     "shortName": "BTR",
-    "description": "Bitlayer Mainnet",
+    "description": "Bitlayer Testnet",
     "chainLogoUri": "https://multisign.bitlayer.org/cfg/media/chains/200901/chain_logo.png",
     "l2": true,
-    "isTestnet": false,
+    "isTestnet": true,
     "rpcUri": {
         "authentication": "NO_AUTHENTICATION",
-        "value": "https://rpc.bitlayer.org"
+        "value": "https://testnet-rpc.bitlayer.org"
     },
     "safeAppsRpcUri": {
         "authentication": "NO_AUTHENTICATION",
-        "value": "https://rpc.bitlayer.org"
+        "value": "https://testnet-rpc.bitlayer.org"
     },
     "publicRpcUri": {
         "authentication": "NO_AUTHENTICATION",
-        "value": "https://rpc.bitlayer.org"
+        "value": "https://testnet-rpc.bitlayer.org"
     },
     "blockExplorerUriTemplate": {
-        "address": "https://www.btrscan.com/address/{{address}}",
-        "txHash": "https://www.btrscan.com/tx/{{txHash}}",
-        "api": "https://api.btrscan.com/scan/api"
+        "address": "https://testnet-scan.bitlayer.org/en-us/address/{{address}}",
+        "txHash": "https://testnet-scan.bitlayer.org/en-us/tx/{{txHash}}",
+        "api": "https://testnet-scan.bitlayer.org/en-us/api?module={{module}}&action={{action}}&address={{address}}&apiKey={{apiKey}}"
     },
     "nativeCurrency": {
         "name": "Bitcoin",
         "symbol": "BTC",
         "decimals": 18,
-        "logoUri": "https://multisign.bitlayer.org/cfg/media/chains/200901/currency_logo.png"
+        "logoUri": "https://test-multisign.bitlayer.org/cfg/media/chains/200810/currency_logo.png"
     },
-    "transactionService": "https://multisign.bitlayer.org/txs",
-    "vpcTransactionService": "https://multisign.bitlayer.org/txs",
+    "transactionService": "https://test-multisign.bitlayer.org/txs",
+    "vpcTransactionService": "https://test-multisign.bitlayer.org/txs",
     "theme": {
         "textColor": "#ffffff",
         "backgroundColor": "#000000"

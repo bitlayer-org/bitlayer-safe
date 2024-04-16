@@ -35,6 +35,7 @@ const ChainLogos = {
   [chains.avax]: '/images/networks/avax.svg',
   [chains.sep]: '/images/networks/sep.png',
   ['200901']: '/images/networks/bitlayer.png',
+  ['200810']: '/images/networks/bitlayer.png',
 }
 
 export const getChainLogo = (chainId: string) => {

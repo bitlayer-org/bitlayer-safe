@@ -13,11 +13,11 @@ const defaultL2Addresses = {
   simulateTxAccessorAddress: "0x59AD6735bCd8152B84860Cb256dD9e96b85F69Da",
 };
 
-//Mainnet
+
 const Bitlayer = {
-  id: 200901 as const,
-  name: "Bitlayer Mainnet",
-  network: "Bitlayer Mainnet",
+  id: 200810 as const,
+  name: "Bitlayer",
+  network: "Bitlayer",
   nativeCurrency: {
     decimals: 18,
     name: "Bitcoin",
@@ -25,18 +25,18 @@ const Bitlayer = {
   },
   rpcUrls: {
     default: {
-      http: ["https://rpc.bitlayer.org"],
+      http: ["https://testnet-rpc.bitlayer.org"],
     },
     public: {
-      http: ["https://rpc.bitlayer.org"],
+      http: ["https://testnet-rpc.bitlayer.org"],
     },
   },
   blockExplorers: {
     etherscan: {
       name: "Explorer",
-      url: "https://www.btrscan.com",
+      url: "https://testnet-scan.bitlayer.org",
     },
-    default: { name: "Explorer", url: "https://www.btrscan.com" },
+    default: { name: "Explorer", url: "https://testnet-scan.bitlayer.org" },
   },
 };
 
