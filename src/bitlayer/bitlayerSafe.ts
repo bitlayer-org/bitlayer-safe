@@ -34,9 +34,9 @@ const Bitlayer = {
   blockExplorers: {
     etherscan: {
       name: "Explorer",
-      url: "https://testnet-scan.bitlayer.org",
+      url: "https://api-testnet.btrscan.com",
     },
-    default: { name: "Explorer", url: "https://testnet-scan.bitlayer.org" },
+    default: { name: "Explorer", url: "https://api-testnet.btrscan.com" },
   },
 };
 

@@ -20,9 +20,9 @@ export const bitlayerConfig = {
         "value": "https://testnet-rpc.bitlayer.org"
     },
     "blockExplorerUriTemplate": {
-        "address": "https://testnet-scan.bitlayer.org/en-us/address/{{address}}",
-        "txHash": "https://testnet-scan.bitlayer.org/en-us/tx/{{txHash}}",
-        "api": "https://testnet-scan.bitlayer.org/en-us/api?module={{module}}&action={{action}}&address={{address}}&apiKey={{apiKey}}"
+        "address": "https://testnet.btrscan.com/address/{{address}}",
+        "txHash": "https://testnet.btrscan.com/tx/{{txHash}}",
+        "api": "https://api-testnet.btrscan.com/scan/api"
     },
     "nativeCurrency": {
         "name": "Bitcoin",
