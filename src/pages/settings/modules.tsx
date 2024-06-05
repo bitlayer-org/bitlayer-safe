@@ -10,7 +10,7 @@ const Modules: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Bitlayer Safe – Settings – Modules'}</title>
+        <title>{'Lorenzo Safe – Settings – Modules'}</title>
       </Head>
 
       <SettingsHeader />

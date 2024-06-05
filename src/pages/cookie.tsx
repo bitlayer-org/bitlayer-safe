@@ -593,7 +593,7 @@ const CookiePolicy: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Bitlayer Safe – Cookie policy'}</title>
+        <title>{'Lorenzo Safe – Cookie policy'}</title>
       </Head>
 
       <main>{IS_OFFICIAL_HOST && <SafeCookiePolicy />}</main>

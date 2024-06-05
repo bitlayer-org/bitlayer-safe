@@ -26,7 +26,7 @@ const Messages: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Bitlayer Safe – Messages'}</title>
+        <title>{'Lorenzo Safe – Messages'}</title>
       </Head>
 
       <TxHeader>

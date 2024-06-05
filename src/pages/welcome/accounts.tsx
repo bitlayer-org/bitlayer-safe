@@ -6,7 +6,7 @@ const Accounts: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Bitlayer Safe – My accounts'}</title>
+        <title>{'Lorenzo Safe – My accounts'}</title>
       </Head>
 
       <MyAccounts />

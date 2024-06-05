@@ -43,7 +43,7 @@ const SafeApps: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Bitlayer Safe – Safe Apps'}</title>
+        <title>{'Lorenzo Safe – Safe Apps'}</title>
       </Head>
 
       <SafeAppsSDKLink />
