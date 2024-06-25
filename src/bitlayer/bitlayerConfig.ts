@@ -28,10 +28,10 @@ export const bitlayerConfig = {
     name: 'Bitcoin',
     symbol: 'BTC',
     decimals: 18,
-    logoUri: 'https://local-mulitisign-env.bitalyer.org/cfg/media/chains/200810/currency_logo.png',
+    logoUri: 'https://local-mulitisign-env.bitlayer.org/cfg/media/chains/200810/currency_logo.png',
   },
-  transactionService: 'https://local-mulitisign-env.bitalyer.org/txs',
-  vpcTransactionService: 'https://local-mulitisign-env.bitalyer.org/txs',
+  transactionService: 'https://local-mulitisign-env.bitlayer.org/txs',
+  vpcTransactionService: 'https://local-mulitisign-env.bitlayer.org/txs',
   theme: {
     textColor: '#ffffff',
     backgroundColor: '#000000',
