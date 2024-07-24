@@ -11,7 +11,7 @@ describe('Recovery happy path tests 2', () => {
     main.acceptCookies()
   })
 
-  // Check that recoverer can start and complete the process if not cancelled by the owner
+  // Check that recoverer can start and complete the process if not canceled by the owner
   it('Recovery setup happy path 2', { defaultCommandTimeout: 300000 }, () => {
     owner.waitForConnectionStatus()
     recovery.postponeRecovery()
