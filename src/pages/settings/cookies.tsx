@@ -8,7 +8,7 @@ const Cookies: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Lorenzo Safe – Settings – Cookies'}</title>
+        <title>{'NERO Safe – Settings – Cookies'}</title>
       </Head>
 
       <SettingsHeader />

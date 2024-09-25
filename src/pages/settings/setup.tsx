@@ -18,7 +18,7 @@ const Setup: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Lorenzo Safe – Settings – Setup'}</title>
+        <title>{'NERO Safe – Settings – Setup'}</title>
       </Head>
 
       <SettingsHeader />

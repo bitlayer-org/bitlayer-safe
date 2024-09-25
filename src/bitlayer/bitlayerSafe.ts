@@ -14,28 +14,28 @@ const defaultL2Addresses = {
 }
 
 const Bitlayer = {
-  id: 8329 as const,
-  name: 'Lorenzo',
-  network: 'Lorenzo',
+  id: 689 as const,
+  name: 'NERO',
+  network: 'NERO',
   nativeCurrency: {
     decimals: 18,
-    name: 'stBTC',
-    symbol: 'stBTC',
+    name: 'NERO',
+    symbol: 'NERO',
   },
   rpcUrls: {
     default: {
-      http: ['https://rpc.lorenzo-protocol.xyz'],
+      http: ['https://rpc-testnet.nerochain.io'],
     },
     public: {
-      http: ['https://rpc.lorenzo-protocol.xyz'],
+      http: ['https://rpc-testnet.nerochain.io'],
     },
   },
   blockExplorers: {
     etherscan: {
       name: 'Explorer',
-      url: 'https://scan.lorenzo-protocol.xyz',
+      url: 'https://rpc-testnet.nerochain.io',
     },
-    default: { name: 'Explorer', url: 'https://scan.lorenzo-protocol.xyz' },
+    default: { name: 'Explorer', url: 'https://rpc-testnet.nerochain.io' },
   },
 }
 

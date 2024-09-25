@@ -593,7 +593,7 @@ const CookiePolicy: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Lorenzo Safe – Cookie policy'}</title>
+        <title>{'NERO Safe – Cookie policy'}</title>
       </Head>
 
       <main>{IS_OFFICIAL_HOST && <SafeCookiePolicy />}</main>

@@ -37,6 +37,7 @@ const ChainLogos = {
   ['200901']: '/images/networks/bitlayer.png',
   ['200810']: '/images/networks/bitlayer.png',
   ['8329']: '/images/networks/lorenzo.png',
+  ['689']: '/images/networks/nero.svg',
 }
 
 export const getChainLogo = (chainId: string) => {

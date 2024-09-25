@@ -16,7 +16,7 @@ const NotificationsPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Lorenzo Safe – Settings – Notifications'}</title>
+        <title>{'NERO Safe – Settings – Notifications'}</title>
       </Head>
 
       <SettingsHeader />

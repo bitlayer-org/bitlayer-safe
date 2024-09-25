@@ -32,7 +32,7 @@ const Appearance: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Lorenzo Safe – Settings – Appearance'}</title>
+        <title>{'NERO Safe – Settings – Appearance'}</title>
       </Head>
 
       <SettingsHeader />

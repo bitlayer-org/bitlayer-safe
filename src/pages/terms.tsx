@@ -604,7 +604,7 @@ const Terms: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Lorenzo Safe – Terms'}</title>
+        <title>{'NERO Safe – Terms'}</title>
       </Head>
 
       <main>{IS_OFFICIAL_HOST && <SafeTerms />}</main>
