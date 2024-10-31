@@ -14,8 +14,8 @@ const defaultL2Addresses = {
 }
 
 const Bitlayer = {
-  id: 689 as const,
-  name: 'NERO',
+  id: 1689 as const,
+  name: 'NERO Mainnet',
   network: 'NERO',
   nativeCurrency: {
     decimals: 18,
@@ -24,18 +24,18 @@ const Bitlayer = {
   },
   rpcUrls: {
     default: {
-      http: ['https://rpc-testnet.nerochain.io'],
+      http: ['http://rpc.nerochain.io'],
     },
     public: {
-      http: ['https://rpc-testnet.nerochain.io'],
+      http: ['http://rpc.nerochain.io'],
     },
   },
   blockExplorers: {
     etherscan: {
       name: 'Explorer',
-      url: 'https://rpc-testnet.nerochain.io',
+      url: 'https://neroscan.io',
     },
-    default: { name: 'Explorer', url: 'https://rpc-testnet.nerochain.io' },
+    default: { name: 'Explorer', url: 'https://neroscan.io' },
   },
 }
 

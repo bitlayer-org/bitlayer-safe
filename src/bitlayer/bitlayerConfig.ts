@@ -1,7 +1,7 @@
 import { FEATURES } from '@safe-global/safe-gateway-typescript-sdk'
 export const bitlayerConfig = {
-  chainId: '689',
-  chainName: 'NERO Testnet',
+  chainId: '1689',
+  chainName: 'NERO Mainnet',
   shortName: 'NERO',
   description: 'NERO',
   chainLogoUri: 'https://multisign.bitlayer.org/cfg/media/chains/200901/chain_logo.png',
@@ -9,20 +9,20 @@ export const bitlayerConfig = {
   isTestnet: true,
   rpcUri: {
     authentication: 'NO_AUTHENTICATION',
-    value: 'https://rpc-testnet.nerochain.io',
+    value: 'https://rpc.nerochain.io',
   },
   safeAppsRpcUri: {
     authentication: 'NO_AUTHENTICATION',
-    value: 'https://rpc-testnet.nerochain.io',
+    value: 'https://rpc.nerochain.io',
   },
   publicRpcUri: {
     authentication: 'NO_AUTHENTICATION',
-    value: 'https://rpc-testnet.nerochain.io',
+    value: 'https://rpc.nerochain.io',
   },
   blockExplorerUriTemplate: {
-    address: 'https://testnet.neroscan.io/address/{{address}}',
-    txHash: 'https://testnet.neroscan.io/tx/{{txHash}}',
-    api: 'https://api-testnet.neroscan.io/api?module={{module}}&action={{action}}&address={{address}}&apiKey={{apiKey}}',
+    address: 'https://neroscan.io/address/{{address}}',
+    txHash: 'https://neroscan.io/tx/{{txHash}}',
+    api: 'https://api.neroscan.io/api?module={{module}}&action={{action}}&address={{address}}&apiKey={{apiKey}}',
   },
   nativeCurrency: {
     name: 'NERO',
@@ -30,8 +30,8 @@ export const bitlayerConfig = {
     decimals: 18,
     logoUri: 'https://multisign.bitlayer.org/cfg/media/chains/200901/chain_logo.png',
   },
-  transactionService: 'https://lorenzo-multisign.bitlayer.org/txs',
-  vpcTransactionService: 'https://lorenzo-multisign.bitlayer.org/txs',
+  transactionService: 'https://multisign.nerochain.io/txs',
+  vpcTransactionService: 'https://multisign.nerochain.io/txs',
   theme: {
     textColor: '#ffffff',
     backgroundColor: '#000000',
