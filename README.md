@@ -65,6 +65,7 @@ yarn postinstall
 ```
 
 Run the development server:
+edit NEXT_PUBLIC_IS_PRODUCTION as false then yarn start
 
 ```bash
 yarn start
@@ -141,3 +142,7 @@ This app is built using the following frameworks:
 - MUI
 - ethers.js
 - web3-onboard
+
+## add chain
+
+One branch corresponds to one network. When adding a new network, the main branch should be used as the base branch for modifications. After the addition, merging back into the main branch is not required.

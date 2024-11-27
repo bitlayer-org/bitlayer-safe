@@ -35,6 +35,7 @@
     "node": ">=16"
   },
   "resolutions": {
+    "ethereumjs-abi": "0.6.8",
     "@web3-onboard/trezor/**/protobufjs": "^7.2.4",
     "@walletconnect/core": "^2.11.1",
     "@walletconnect/ethereum-provider": "^2.11.2",
