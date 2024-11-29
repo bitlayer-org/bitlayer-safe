@@ -27,7 +27,7 @@ describe('Tx history tests 1', () => {
     )
   })
 
-  it('Verify exapanded details for account creation', () => {
+  it('Verify expanded details for account creation', () => {
     createTx.clickOnTransactionItemByName(typeCreateAccount.title)
     createTx.verifyExpandedDetails([
       typeCreateAccount.creator.actionTitle,
@@ -61,7 +61,7 @@ describe('Tx history tests 1', () => {
   })
 
   // Token send
-  it('Verify exapanded details for token send', () => {
+  it('Verify expanded details for token send', () => {
     createTx.clickOnTransactionItemByName(typeSend.title, typeSend.summaryTxInfo)
     createTx.verifyExpandedDetails([typeSend.sentTo, typeSend.recipientAddress, typeSend.transactionHash])
     createTx.verifyActionListExists([
@@ -81,7 +81,7 @@ describe('Tx history tests 1', () => {
     )
   })
 
-  it('Verify exapanded details for initial spending limits setup', () => {
+  it('Verify expanded details for initial spending limits setup', () => {
     createTx.clickOnTransactionItemByName(typeSpendingLimits.title, typeSpendingLimits.summaryTxInfo)
     createTx.verifyExpandedDetails(
       [
@@ -125,7 +125,7 @@ describe('Tx history tests 1', () => {
   })
 
   // Spending limit deletion
-  it('Verify exapanded details for allowance deletion', () => {
+  it('Verify expanded details for allowance deletion', () => {
     createTx.clickOnTransactionItemByName(typeDeleteAllowance.title, typeDeleteAllowance.summaryTxInfo)
     createTx.verifyExpandedDetails([
       typeDeleteAllowance.description,

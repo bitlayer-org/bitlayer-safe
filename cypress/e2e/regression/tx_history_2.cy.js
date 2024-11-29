@@ -26,7 +26,7 @@ describe('Tx history tests 2', () => {
   })
 
   // On-chain rejection
-  it('Verify exapanded details for on-chain rejection', () => {
+  it('Verify expanded details for on-chain rejection', () => {
     createTx.clickOnTransactionItemByName(typeOnchainRejection.title)
     createTx.verifyExpandedDetails([
       typeOnchainRejection.description,
@@ -41,7 +41,7 @@ describe('Tx history tests 2', () => {
   })
 
   // Batch transaction
-  it('Verify exapanded details for batch', () => {
+  it('Verify expanded details for batch', () => {
     createTx.clickOnTransactionItemByName(typeBatch.title, typeBatch.summaryTxInfo)
     createTx.verifyExpandedDetails(
       [
@@ -61,7 +61,7 @@ describe('Tx history tests 2', () => {
     createTx.verifySummaryByName(typeAddOwner.title, [typeGeneral.statusOk], typeAddOwner.altImage)
   })
 
-  it('Verify exapanded details for adding owner', () => {
+  it('Verify expanded details for adding owner', () => {
     createTx.clickOnTransactionItemByName(typeAddOwner.title)
     createTx.verifyExpandedDetails(
       [
@@ -80,7 +80,7 @@ describe('Tx history tests 2', () => {
     createTx.verifySummaryByName(typeChangeOwner.title, [typeGeneral.statusOk], typeChangeOwner.altImage)
   })
 
-  it('Verify exapanded details for changing owner', () => {
+  it('Verify expanded details for changing owner', () => {
     createTx.clickOnTransactionItemByName(typeChangeOwner.title)
     createTx.verifyExpandedDetails([
       typeChangeOwner.description,
@@ -99,7 +99,7 @@ describe('Tx history tests 2', () => {
     createTx.verifySummaryByName(typeRemoveOwner.title, [typeGeneral.statusOk], typeRemoveOwner.altImage)
   })
 
-  it('Verify exapanded details for removing owner', () => {
+  it('Verify expanded details for removing owner', () => {
     createTx.clickOnTransactionItemByName(typeRemoveOwner.title)
     createTx.verifyExpandedDetails(
       [
@@ -114,12 +114,12 @@ describe('Tx history tests 2', () => {
     createTx.checkRequiredThreshold(1)
   })
 
-  // Disbale module
+  // Disable module
   it('Verify summary for disable module', () => {
     createTx.verifySummaryByName(typeDisableOwner.title, [typeGeneral.statusOk], typeDisableOwner.altImage)
   })
 
-  it('Verify exapanded details for disable module', () => {
+  it('Verify expanded details for disable module', () => {
     createTx.clickOnTransactionItemByName(typeDisableOwner.title)
     createTx.verifyExpandedDetails([
       typeDisableOwner.description,
@@ -138,7 +138,7 @@ describe('Tx history tests 2', () => {
     )
   })
 
-  it('Verify exapanded details for changing threshold', () => {
+  it('Verify expanded details for changing threshold', () => {
     createTx.clickOnTransactionItemByName(typeChangeThreshold.title)
     createTx.verifyExpandedDetails(
       [
