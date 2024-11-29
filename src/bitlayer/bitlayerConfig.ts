@@ -1,37 +1,37 @@
 import { FEATURES } from '@safe-global/safe-gateway-typescript-sdk'
 export const bitlayerConfig = {
-    "chainId": "200901",
-    "chainName": "Bitlayer Mainnet",
-    "shortName": "BTR",
-    "description": "Bitlayer Mainnet",
+    "chainId": "1",
+    "chainName": "Ethereum Mainnet",
+    "shortName": "ETH",
+    "description": "Ethereum Mainnet",
     "chainLogoUri": "https://multisign.bitlayer.org/cfg/media/chains/200901/chain_logo.png",
     "l2": true,
     "isTestnet": false,
     "rpcUri": {
         "authentication": "NO_AUTHENTICATION",
-        "value": "https://rpc.bitlayer.org"
+        "value": "https://rpc.ankr.com/eth"
     },
     "safeAppsRpcUri": {
         "authentication": "NO_AUTHENTICATION",
-        "value": "https://rpc.bitlayer.org"
+        "value": "https://rpc.ankr.com/eth"
     },
     "publicRpcUri": {
         "authentication": "NO_AUTHENTICATION",
-        "value": "https://rpc.bitlayer.org"
+        "value": "https://rpc.ankr.com/eth"
     },
     "blockExplorerUriTemplate": {
-        "address": "https://www.btrscan.com/address/{{address}}",
-        "txHash": "https://www.btrscan.com/tx/{{txHash}}",
-        "api": "https://api.btrscan.com/scan/api"
+        "address": "https://etherscan.io/address/{{address}}",
+        "txHash": "https://etherscan.io/tx/{{txHash}}",
+        "api": "https://api.etherscan.io/v2/api"
     },
     "nativeCurrency": {
-        "name": "Bitcoin",
-        "symbol": "BTC",
+        "name": "Ether",
+        "symbol": "ETH",
         "decimals": 18,
         "logoUri": "https://multisign.bitlayer.org/cfg/media/chains/200901/currency_logo.png"
     },
-    "transactionService": "https://multisign.bitlayer.org/txs",
-    "vpcTransactionService": "https://multisign.bitlayer.org/txs",
+    "transactionService": "https://multisign-fin.trustin.com/txs",
+    "vpcTransactionService": "https://multisign-fin.trustin.com/txs",
     "theme": {
         "textColor": "#ffffff",
         "backgroundColor": "#000000"

@@ -1,15 +1,11 @@
 Dockerfile
 .dockerignore
-node_modules
 npm-debug.log
 .next
 .git
 coverage
 .DS_Store
 .idea
-dist
 
-build/
 coverage/
 cypress/
-out/

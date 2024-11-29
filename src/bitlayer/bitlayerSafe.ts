@@ -15,28 +15,28 @@ const defaultL2Addresses = {
 
 //Mainnet
 const Bitlayer = {
-  id: 200901 as const,
-  name: "Bitlayer Mainnet",
-  network: "Bitlayer Mainnet",
+  id: 1 as const,
+  name: "Ethereum Mainnet",
+  network: "Ethereum Mainnet",
   nativeCurrency: {
     decimals: 18,
-    name: "Bitcoin",
-    symbol: "BTC",
+    name: "Ether",
+    symbol: "ETH",
   },
   rpcUrls: {
     default: {
-      http: ["https://rpc.bitlayer.org"],
+      http: ["https://rpc.ankr.com/eth"],
     },
     public: {
-      http: ["https://rpc.bitlayer.org"],
+      http: ["https://rpc.ankr.com/eth"],
     },
   },
   blockExplorers: {
     etherscan: {
       name: "Explorer",
-      url: "https://www.btrscan.com",
+      url: "https://etherscan.io",
     },
-    default: { name: "Explorer", url: "https://www.btrscan.com" },
+    default: { name: "Explorer", url: "https://etherscan.io" },
   },
 };
 
