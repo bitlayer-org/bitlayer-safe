@@ -3,3 +3,9 @@
   padding: 0px 10px;
   margin-bottom: 10px;
 }
+
+.delegateCall {
+  width: 100%;
+  font-size: 36px;
+  padding: 8px 10px;
+}

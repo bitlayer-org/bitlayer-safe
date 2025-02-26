@@ -6,22 +6,25 @@ import InfoOutlinedIcon from '@/public/images/notifications/info.svg'
 import css from './styles.module.css'
 import ExternalLink from '@/components/common/ExternalLink'
 import { HelpCenterArticle } from '@/config/constants'
+import classNames from 'classnames'
 
 const Warning = ({
   datatestid,
   title,
   text,
   severity,
+  className = ''
 }: {
   datatestid?: String
   title: string | ReactElement
   text: string
-  severity: AlertColor
+  severity: AlertColor,
+  className?: string,
 }): ReactElement => {
   return (
     <Tooltip data-testid={datatestid} title={title} placement="top-start" arrow>
       <Alert
-        className={css.alert}
+        className={classNames(css.alert, className)}
         sx={{ borderLeft: ({ palette }) => `3px solid ${palette[severity].main} !important` }}
         severity={severity}
         icon={<SvgIcon component={InfoOutlinedIcon} inheritViewBox color={severity} />}
@@ -34,8 +37,10 @@ const Warning = ({
 
 export const DelegateCallWarning = ({ showWarning }: { showWarning: boolean }): ReactElement => {
   const severity = showWarning ? 'warning' : 'success'
+  
   return (
     <Warning
+     className={css.delegateCall}
       datatestid="delegate-call-warning"
       title={
         <>
