@@ -8,14 +8,14 @@ import { TX_LIST_EVENTS } from '@/services/analytics/events/txList'
 import React from 'react'
 import { Tooltip } from '@mui/material'
 
-const checkOrigin = 'https://www.aegisweb.xyz/analysis'
 
 const TxCheckLink = ({ safeHash }: { safeHash: string }): ReactElement => {
   const router = useRouter()
   const safe = (router.query.safe as string) || ''
   const safeAddress = safe.split(':')?.[1]
-  const txUrl = `${checkOrigin}?safe=${safeAddress}&safeHash=${safeHash}`
+  const txUrl = `${localStorage.getItem('checkSafeHref')}?safe=${safeAddress}&safeHash=${safeHash}`
   const [showTooltip, setShowTooltip] = useState(false)
+  
 
   return (
     <Track {...TX_LIST_EVENTS.COPY_DEEPLINK}>
