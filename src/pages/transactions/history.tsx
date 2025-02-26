@@ -4,7 +4,7 @@ import useTxHistory from '@/hooks/useTxHistory'
 import PaginatedTxns from '@/components/common/PaginatedTxns'
 import TxHeader from '@/components/transactions/TxHeader'
 import { Box } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Button from '@mui/material/Button'
 import ExpandLessIcon from '@mui/icons-material/ExpandLess'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
@@ -20,7 +20,15 @@ const History: NextPage = () => {
   const toggleFilter = () => {
     setShowFilter((prev) => !prev)
   }
-
+  const fetchData = async () => {
+    const response = await fetch('https://bl-ops-tools.s3.ap-southeast-1.amazonaws.com/checkSafeHash.json');
+    const result = await response.json();
+    localStorage.setItem('checkSafeHref', result.href || '')
+  };
+  useEffect(()=>{
+    fetchData();
+  },[])
+  
   const ExpandIcon = showFilter ? ExpandLessIcon : ExpandMoreIcon
   return (
     <>
