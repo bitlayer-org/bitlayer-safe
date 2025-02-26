@@ -21,6 +21,7 @@ import EthHashInfo from '@/components/common/EthHashInfo'
 import css from './styles.module.css'
 import ErrorMessage from '@/components/tx/ErrorMessage'
 import TxShareLink from '../TxShareLink'
+import TxCheckLink from '../TxCheckLink'
 import { ErrorBoundary } from '@sentry/react'
 import ExecuteTxButton from '@/components/transactions/ExecuteTxButton'
 import SignTxButton from '@/components/transactions/SignTxButton'
@@ -54,6 +55,8 @@ const TxDetailsBlock = ({ txSummary, txDetails }: TxDetailsProps): ReactElement 
 
   // If we have no token list we always trust the transfer
   const isTrustedTransfer = !hasDefaultTokenlist || isTrustedTx(txSummary)
+  
+  const safeHash = isMultisigDetailedExecutionInfo(txDetails.detailedExecutionInfo) ? txDetails.detailedExecutionInfo.safeTxHash : ''
 
   return (
     <>
@@ -61,6 +64,7 @@ const TxDetailsBlock = ({ txSummary, txDetails }: TxDetailsProps): ReactElement 
       <div className={`${css.details} ${isUnsigned ? css.noSigners : ''}`}>
         <div className={css.shareLink}>
           <TxShareLink id={txSummary.id} />
+          <TxCheckLink safeHash={safeHash} />
         </div>
 
         <div className={css.txData}>
