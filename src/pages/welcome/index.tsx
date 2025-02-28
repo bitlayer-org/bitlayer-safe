@@ -8,7 +8,6 @@ const Welcome: NextPage = () => {
       <Head>
         <title>{'Bitlayer Safe – Welcome'}</title>
       </Head>
-
       <NewSafe />
     </>
   )

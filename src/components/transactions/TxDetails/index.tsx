@@ -1,4 +1,4 @@
-import React, { type ReactElement } from 'react'
+import React, { useEffect, type ReactElement } from 'react'
 import type { TransactionDetails, TransactionSummary } from '@safe-global/safe-gateway-typescript-sdk'
 import { getTransactionDetails, Operation } from '@safe-global/safe-gateway-typescript-sdk'
 import { Box, CircularProgress } from '@mui/material'
@@ -33,6 +33,9 @@ import useIsPending from '@/hooks/useIsPending'
 import { isTrustedTx } from '@/utils/transactions'
 import { useHasFeature } from '@/hooks/useChains'
 import { FEATURES } from '@/utils/chains'
+import type { SafeConfig } from '@/hooks/useLocalConfig';
+import { LOCAL_CONFIG_KEY, fetchConfig } from '@/hooks/useLocalConfig'
+import useLocalStorage from '@/services/local-storage/useLocalStorage'
 
 export const NOT_AVAILABLE = 'n/a'
 
@@ -57,6 +60,13 @@ const TxDetailsBlock = ({ txSummary, txDetails }: TxDetailsProps): ReactElement 
   const isTrustedTransfer = !hasDefaultTokenlist || isTrustedTx(txSummary)
   
   const safeHash = isMultisigDetailedExecutionInfo(txDetails.detailedExecutionInfo) ? txDetails.detailedExecutionInfo.safeTxHash : ''
+  const [localConfig,setLocalConfig]= useLocalStorage<SafeConfig>(LOCAL_CONFIG_KEY)
+
+  useEffect(()=>{
+    if(!localConfig?.checkSafeHref){
+      fetchConfig(setLocalConfig)
+    }
+  },[])
 
   return (
     <>
@@ -64,7 +74,7 @@ const TxDetailsBlock = ({ txSummary, txDetails }: TxDetailsProps): ReactElement 
       <div className={`${css.details} ${isUnsigned ? css.noSigners : ''}`}>
         <div className={css.shareLink}>
           <TxShareLink id={txSummary.id} />
-          <TxCheckLink safeHash={safeHash} />
+          {safeHash &&  <TxCheckLink safeHash={safeHash} />}
         </div>
 
         <div className={css.txData}>

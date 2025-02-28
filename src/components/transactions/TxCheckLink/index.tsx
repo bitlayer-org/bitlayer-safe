@@ -7,15 +7,16 @@ import Track from '@/components/common/Track'
 import { TX_LIST_EVENTS } from '@/services/analytics/events/txList'
 import React from 'react'
 import { Tooltip } from '@mui/material'
-
+import useLocalStorage from '@/services/local-storage/useLocalStorage'
+import { LOCAL_CONFIG_KEY, type SafeConfig } from '@/hooks/useLocalConfig'
 
 const TxCheckLink = ({ safeHash }: { safeHash: string }): ReactElement => {
   const router = useRouter()
   const safe = (router.query.safe as string) || ''
   const safeAddress = safe.split(':')?.[1]
-  const txUrl = `${localStorage.getItem('checkSafeHref')}?safe=${safeAddress}&safeHash=${safeHash}`
+  const [localConfig] = useLocalStorage<SafeConfig>(LOCAL_CONFIG_KEY)
+  const txUrl = `${localConfig?.checkSafeHref}?safe=${safeAddress}&safeHash=${safeHash}`
   const [showTooltip, setShowTooltip] = useState(false)
-  
 
   return (
     <Track {...TX_LIST_EVENTS.COPY_DEEPLINK}>
