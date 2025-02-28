@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react'
+import { type ReactElement } from 'react'
 import { Alert, SvgIcon, Tooltip } from '@mui/material'
 import type { AlertColor } from '@mui/material'
 
@@ -13,13 +13,15 @@ const Warning = ({
   title,
   text,
   severity,
-  className = ''
+  className = '',
+  svgClass = ''
 }: {
   datatestid?: String
   title: string | ReactElement
   text: string
   severity: AlertColor,
   className?: string,
+  svgClass?: string,
 }): ReactElement => {
   return (
     <Tooltip data-testid={datatestid} title={title} placement="top-start" arrow>
@@ -27,9 +29,9 @@ const Warning = ({
         className={classNames(css.alert, className)}
         sx={{ borderLeft: ({ palette }) => `3px solid ${palette[severity].main} !important` }}
         severity={severity}
-        icon={<SvgIcon component={InfoOutlinedIcon} inheritViewBox color={severity} />}
+        icon={<SvgIcon className={svgClass} component={InfoOutlinedIcon} inheritViewBox color={severity} />}
       >
-        <b>{text}</b>
+        {text}
       </Alert>
     </Tooltip>
   )
@@ -41,6 +43,7 @@ export const DelegateCallWarning = ({ showWarning }: { showWarning: boolean }): 
   return (
     <Warning
      className={css.delegateCall}
+     svgClass={css.svgIcon}
       datatestid="delegate-call-warning"
       title={
         <>
@@ -57,6 +60,18 @@ export const DelegateCallWarning = ({ showWarning }: { showWarning: boolean }): 
       text={showWarning ? 'Unexpected delegate call' : 'Delegate call'}
     />
   )
+}
+
+export const MaintenanceWarning = ({ notice }:{ notice:string }): ReactElement => {
+
+  return <Warning
+    title={''}
+    className={css.maintenance}
+    svgClass={css.maintenanceSvgIcon}
+    datatestid="maintenance-warning"
+    severity="warning"
+    text={notice || ''}
+  />
 }
 
 export const ApprovalWarning = ({ approvalTxCount }: { approvalTxCount: number }): ReactElement => (
