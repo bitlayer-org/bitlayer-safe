@@ -24,7 +24,6 @@ const ChainLogos = {
   [chains.matic]: '/images/networks/polygon.svg',
   [chains.aurora]: '/images/networks/aurora.svg',
   [chains.base]: '/images/networks/base.svg',
-  [chains.Bitlayer]: '/images/networks/base.svg',
   [chains.basegor]: '/images/networks/base.svg',
   [chains.basesep]: '/images/networks/base.svg',
   [chains.zkevm]: '/images/networks/polygon.svg',
@@ -34,7 +33,6 @@ const ChainLogos = {
   [chains.arb1]: '/images/networks/arb.svg',
   [chains.avax]: '/images/networks/avax.svg',
   [chains.sep]: '/images/networks/sep.png',
-  ['200901']: '/images/networks/bitlayer.png',
 }
 
 export const getChainLogo = (chainId: string) => {

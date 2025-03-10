@@ -55,6 +55,7 @@ export const useTxActions = (): TxActions => {
     const addToBatch: TxActions['addToBatch'] = async (safeTx, origin) => {
       assertTx(safeTx)
       assertWallet(wallet)
+
       const tx = await proposeTx(wallet.address, safeTx, undefined, origin)
       await addTxToBatch(tx)
       return tx.txId

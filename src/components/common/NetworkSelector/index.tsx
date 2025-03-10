@@ -26,7 +26,6 @@ const NetworkSelector = (props: { onChainSelect?: () => void }): ReactElement =>
   const { configs } = useChains()
   const chainId = useChainId()
   const router = useRouter()
-  const effectiveChainId = chainId || 200901;
 
   const [testNets, prodNets] = useMemo(() => partition(configs, (config) => config.isTestnet), [configs])
 
@@ -101,10 +100,10 @@ const NetworkSelector = (props: { onChainSelect?: () => void }): ReactElement =>
           },
           ...(isDarkMode
             ? {
-              '& .Mui-selected, & .Mui-selected:hover': {
-                backgroundColor: `${theme.palette.secondary.background} !important`,
-              },
-            }
+                '& .Mui-selected, & .Mui-selected:hover': {
+                  backgroundColor: `${theme.palette.secondary.background} !important`,
+                },
+              }
             : {}),
         },
       }}
@@ -115,6 +114,8 @@ const NetworkSelector = (props: { onChainSelect?: () => void }): ReactElement =>
       }}
     >
       {prodNets.map((chain) => renderMenuItem(chain.chainId, chain))}
+
+      <ListSubheader className={css.listSubHeader}>Testnets</ListSubheader>
 
       {testNets.map((chain) => renderMenuItem(chain.chainId, chain))}
     </Select>

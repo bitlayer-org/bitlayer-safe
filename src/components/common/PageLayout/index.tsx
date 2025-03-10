@@ -9,17 +9,13 @@ import SideDrawer from './SideDrawer'
 import { useIsSidebarRoute } from '@/hooks/useIsSidebarRoute'
 import { TxModalContext } from '@/components/tx-flow'
 import BatchSidebar from '@/components/batch/BatchSidebar'
-import { MaintenanceWarning } from '@/components/transactions/Warning'
-import useLocalStorage from '@/services/local-storage/useLocalStorage'
-import { LOCAL_CONFIG_KEY, type SafeConfig } from '@/hooks/useLocalConfig'
 
 const PageLayout = ({ pathname, children }: { pathname: string; children: ReactElement }): ReactElement => {
   const [isSidebarRoute, isAnimated] = useIsSidebarRoute(pathname)
   const [isSidebarOpen, setSidebarOpen] = useState<boolean>(true)
   const [isBatchOpen, setBatchOpen] = useState<boolean>(false)
   const { setFullWidth } = useContext(TxModalContext)
-  
-  const [localConfig] = useLocalStorage<SafeConfig>(LOCAL_CONFIG_KEY)
+
   useEffect(() => {
     setFullWidth(!isSidebarOpen)
   }, [isSidebarOpen, setFullWidth])
@@ -37,8 +33,7 @@ const PageLayout = ({ pathname, children }: { pathname: string; children: ReactE
           [css.mainNoSidebar]: !isSidebarOpen || !isSidebarRoute,
           [css.mainAnimated]: isSidebarRoute && isAnimated,
         })}
-      > 
-        {localConfig?.showNotice && <MaintenanceWarning notice={localConfig.noticeStr} />}
+      >
         <div className={css.content}>
           <SafeLoadingError>{children}</SafeLoadingError>
         </div>

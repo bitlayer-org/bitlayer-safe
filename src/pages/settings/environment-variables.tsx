@@ -7,7 +7,7 @@ const EnvironmentVariablesPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Bitlayer Safe – Settings – Environment variables'}</title>
+        <title>{'Safe{Wallet} – Settings – Environment variables'}</title>
       </Head>
 
       <SettingsHeader />

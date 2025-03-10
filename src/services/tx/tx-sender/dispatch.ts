@@ -45,6 +45,7 @@ export const dispatchTxProposal = async ({
 }): Promise<TransactionDetails> => {
   const safeSDK = getAndValidateSafeSDK()
   const safeTxHash = await safeSDK.getTransactionHash(safeTx)
+
   let proposedTx: TransactionDetails | undefined
   try {
     proposedTx = await proposeTx(chainId, safeAddress, sender, safeTx, safeTxHash, origin)

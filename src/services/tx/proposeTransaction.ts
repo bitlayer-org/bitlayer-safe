@@ -11,7 +11,6 @@ const proposeTx = async (
   origin?: string,
 ): Promise<TransactionDetails> => {
   const signatures = tx.signatures.size > 0 ? tx.encodedSignatures() : undefined
-  console.log('proposeTx ing')
 
   return proposeTransaction(chainId, safeAddress, {
     ...tx.data,

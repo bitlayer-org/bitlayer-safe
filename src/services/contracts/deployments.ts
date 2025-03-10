@@ -6,12 +6,11 @@ import {
   getFallbackHandlerDeployment,
   getProxyFactoryDeployment,
   getSignMessageLibDeployment,
-} from '@/bitlayer-safe-deployments/src'
-import type { SingletonDeployment, DeploymentFilter } from '@/bitlayer-safe-deployments/src'
+} from '@safe-global/safe-deployments'
+import type { SingletonDeployment, DeploymentFilter } from '@safe-global/safe-deployments'
 import type { ChainInfo, SafeInfo } from '@safe-global/safe-gateway-typescript-sdk'
-import { LATEST_SAFE_VERSION } from '@/config/constants'
 
-// import { LATEST_SAFE_VERSION } from '@/config/constants'
+import { LATEST_SAFE_VERSION } from '@/config/constants'
 
 export const _tryDeploymentVersions = (
   getDeployment: (filter?: DeploymentFilter) => SingletonDeployment | undefined,
@@ -33,6 +32,7 @@ export const _tryDeploymentVersions = (
     network,
   })
 }
+
 export const _isLegacy = (safeVersion: SafeInfo['version']): boolean => {
   const LEGACY_VERSIONS = '<=1.0.0'
   return !!safeVersion && semverSatisfies(safeVersion, LEGACY_VERSIONS)

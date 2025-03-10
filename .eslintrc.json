@@ -1,9 +1,5 @@
 {
-  "extends": [
-    "next",
-    "prettier",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["next", "prettier", "plugin:prettier/recommended"],
   "rules": {
     "@next/next/no-img-element": "off",
     "@next/next/google-font-display": "off",
@@ -18,17 +14,8 @@
         "additionalHooks": "useAsync"
       }
     ],
-    "no-only-tests/no-only-tests": "error",
-    "prettier/prettier": "off"
+    "no-only-tests/no-only-tests": "error"
   },
-  "ignorePatterns": [
-    "node_modules/",
-    ".next/",
-    ".github/"
-  ],
-  "plugins": [
-    "unused-imports",
-    "@typescript-eslint",
-    "no-only-tests"
-  ]
+  "ignorePatterns": ["node_modules/", ".next/", ".github/"],
+  "plugins": ["unused-imports", "@typescript-eslint", "no-only-tests"]
 }

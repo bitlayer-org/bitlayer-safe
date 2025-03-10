@@ -1,4 +1,4 @@
-import React, { useEffect, type ReactElement } from 'react'
+import React, { type ReactElement } from 'react'
 import type { TransactionDetails, TransactionSummary } from '@safe-global/safe-gateway-typescript-sdk'
 import { getTransactionDetails, Operation } from '@safe-global/safe-gateway-typescript-sdk'
 import { Box, CircularProgress } from '@mui/material'
@@ -21,7 +21,6 @@ import EthHashInfo from '@/components/common/EthHashInfo'
 import css from './styles.module.css'
 import ErrorMessage from '@/components/tx/ErrorMessage'
 import TxShareLink from '../TxShareLink'
-import TxCheckLink from '../TxCheckLink'
 import { ErrorBoundary } from '@sentry/react'
 import ExecuteTxButton from '@/components/transactions/ExecuteTxButton'
 import SignTxButton from '@/components/transactions/SignTxButton'
@@ -33,9 +32,6 @@ import useIsPending from '@/hooks/useIsPending'
 import { isTrustedTx } from '@/utils/transactions'
 import { useHasFeature } from '@/hooks/useChains'
 import { FEATURES } from '@/utils/chains'
-import type { SafeConfig } from '@/hooks/useLocalConfig';
-import { LOCAL_CONFIG_KEY, fetchConfig } from '@/hooks/useLocalConfig'
-import useLocalStorage from '@/services/local-storage/useLocalStorage'
 
 export const NOT_AVAILABLE = 'n/a'
 
@@ -58,15 +54,6 @@ const TxDetailsBlock = ({ txSummary, txDetails }: TxDetailsProps): ReactElement 
 
   // If we have no token list we always trust the transfer
   const isTrustedTransfer = !hasDefaultTokenlist || isTrustedTx(txSummary)
-  
-  const safeHash = isMultisigDetailedExecutionInfo(txDetails.detailedExecutionInfo) ? txDetails.detailedExecutionInfo.safeTxHash : ''
-  const [localConfig,setLocalConfig]= useLocalStorage<SafeConfig>(LOCAL_CONFIG_KEY)
-
-  useEffect(()=>{
-    if(!localConfig?.checkSafeHref){
-      fetchConfig(setLocalConfig)
-    }
-  },[])
 
   return (
     <>
@@ -74,7 +61,6 @@ const TxDetailsBlock = ({ txSummary, txDetails }: TxDetailsProps): ReactElement 
       <div className={`${css.details} ${isUnsigned ? css.noSigners : ''}`}>
         <div className={css.shareLink}>
           <TxShareLink id={txSummary.id} />
-          {safeHash &&  <TxCheckLink safeHash={safeHash} />}
         </div>
 
         <div className={css.txData}>

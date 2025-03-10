@@ -17,7 +17,7 @@ const Settings: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Bitlayer Safe – Settings'}</title>
+        <title>{'Safe{Wallet} – Settings'}</title>
       </Head>
     </>
   )

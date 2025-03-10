@@ -6,7 +6,7 @@ const SocialLogin: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Bitlayer Safe – Welcome'}</title>
+        <title>{'Safe{Wallet} – Welcome'}</title>
       </Head>
 
       <NewSafeSocial />

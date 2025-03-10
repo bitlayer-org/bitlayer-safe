@@ -15,7 +15,7 @@ const WalletIcon = ({
     <img
       width={width}
       height={height}
-      src={location.origin + '/images/bitlayer.jpg'}
+      src={`data:image/svg+xml;utf8,${encodeURIComponent(icon)}`}
       alt={`${provider} logo`}
     />
   ) : (

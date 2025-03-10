@@ -15,8 +15,6 @@
   position: absolute;
   right: 16px;
   top: 16px;
-  display: flex;
-  gap: 6px;
 }
 
 .details .noSigners {

@@ -3,7 +3,7 @@ import { type WalletState, type OnboardAPI } from '@web3-onboard/core'
 import { type ChainInfo } from '@safe-global/safe-gateway-typescript-sdk'
 import type { Eip1193Provider } from 'ethers'
 import { getAddress } from 'ethers'
-import { useCurrentChain } from '@/hooks/useChains'
+import useChains, { useCurrentChain } from '@/hooks/useChains'
 import ExternalStore from '@/services/ExternalStore'
 import { logError, Errors } from '@/services/exceptions'
 import { trackEvent, WALLET_EVENTS } from '@/services/analytics'
@@ -27,11 +27,17 @@ export type ConnectedWallet = {
   balance?: string
 }
 
-const { setStore, useStore } = new ExternalStore<OnboardAPI>()
+const { getStore, setStore, useStore } = new ExternalStore<OnboardAPI>()
 
-export const initOnboard = async (currentChain: ChainInfo, rpcConfig: EnvState['rpc'] | undefined) => {
+export const initOnboard = async (
+  chainConfigs: ChainInfo[],
+  currentChain: ChainInfo,
+  rpcConfig: EnvState['rpc'] | undefined,
+) => {
   const { createOnboard } = await import('@/services/onboard')
-  setStore(createOnboard(currentChain, rpcConfig))
+  if (!getStore()) {
+    setStore(createOnboard(chainConfigs, currentChain, rpcConfig))
+  }
 }
 
 // Get the most recently connected wallet address
@@ -165,17 +171,16 @@ const saveLastWallet = (walletLabel: string) => {
 
 // Disable/enable wallets according to chain
 export const useInitOnboard = () => {
+  const { configs } = useChains()
   const chain = useCurrentChain()
   const onboard = useStore()
   const customRpc = useAppSelector(selectRpc)
 
   useEffect(() => {
-    if (chain) {
-      initOnboard(chain, customRpc).catch((e) => {
-        logError(Errors._302, e)
-      })
+    if (configs.length > 0 && chain) {
+      void initOnboard(configs, chain, customRpc)
     }
-  }, [chain, customRpc])
+  }, [configs, chain, customRpc])
 
   // Disable unsupported wallets on the current chain
   useEffect(() => {
@@ -183,8 +188,8 @@ export const useInitOnboard = () => {
 
     const enableWallets = async () => {
       const { getSupportedWallets } = await import('@/hooks/wallets/wallets')
-      const supportedWallets = await getSupportedWallets(chain)
-      onboard.state.actions.setWalletModules(supportedWallets as any)
+      const supportedWallets = getSupportedWallets(chain)
+      onboard.state.actions.setWalletModules(supportedWallets)
     }
 
     enableWallets().then(() => {

@@ -20,12 +20,12 @@ const History: NextPage = () => {
   const toggleFilter = () => {
     setShowFilter((prev) => !prev)
   }
-  
+
   const ExpandIcon = showFilter ? ExpandLessIcon : ExpandMoreIcon
   return (
     <>
       <Head>
-        <title>{'Bitlayer Safe – Transaction history'}</title>
+        <title>{'Safe{Wallet} – Transaction history'}</title>
       </Head>
 
       <TxHeader>

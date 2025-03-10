@@ -7,7 +7,7 @@ const Offline: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Bitlayer Safe – Offline'}</title>
+        <title>{'Safe{Wallet} – Offline'}</title>
       </Head>
 
       <main>

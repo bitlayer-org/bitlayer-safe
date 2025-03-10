@@ -443,7 +443,7 @@ const SafeLicenses = () => (
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>@/bitlayer-safe-deployments/src</TableCell>
+              <TableCell>@safe-global/safe-deployments</TableCell>
               <TableCell>
                 <ExternalLink href="https://github.com/safe-global/safe-deployments/blob/main/LICENSE">
                   https://github.com/safe-global/safe-deployments/blob/main/LICENSE
@@ -717,7 +717,7 @@ const Licenses: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Bitlayer Safe – Licenses'}</title>
+        <title>{'Safe{Wallet} – Licenses'}</title>
       </Head>
 
       <main>{IS_OFFICIAL_HOST && <SafeLicenses />}</main>
