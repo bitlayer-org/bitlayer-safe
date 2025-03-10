@@ -134,7 +134,7 @@ export function clickOnAppsBtn() {
 
 export function clickOnBookmarkedAppsBtn() {
   cy.contains(bookmarkedAppsBtnStr).click()
-  //Takes a some time to load the apps page, It waits for bookmark to be lighted up
+  //Takes some time to load the apps page, It waits for bookmark to be lighted up
   cy.waitForSelector(() => {
     return cy
       .get('[aria-selected="true"] p')
