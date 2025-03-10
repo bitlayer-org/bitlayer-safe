@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  line-height: 1.4;
+  width: 100%;
+}
+
+.avatarContainer {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.avatarContainer > * {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.addressContainer {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.inline {
+  display: flex;
+  align-items: center;
+}

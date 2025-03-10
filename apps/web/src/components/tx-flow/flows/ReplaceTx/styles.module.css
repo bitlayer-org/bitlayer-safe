@@ -1,0 +1,97 @@
+.container {
+}
+
+.redCircle {
+  border: 3px solid var(--color-error-main);
+}
+
+.circle {
+  border: 2px solid var(--color-border-light);
+}
+
+.circle,
+.redCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.stepper {
+  padding-top: var(--space-3);
+  gap: var(--space-2);
+}
+
+.stepper :global .MuiStepConnector-root {
+  left: -8px;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+}
+
+.stepper :global .MuiStepConnector-line {
+  border: 1px solid var(--color-border-main);
+}
+
+.stepper :global .MuiStep-root:not(:nth-of-type(2)) .MuiStepConnector-line {
+  border-color: var(--color-border-light);
+}
+
+.or {
+  text-align: center;
+  padding: var(--space-2) var(--space-3);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) 0;
+  font-weight: 700;
+}
+
+.or:before,
+.or:after {
+  content: '';
+  flex: 1;
+  display: block;
+  border-top: 1px solid var(--color-border-light);
+}
+
+@media (max-width: 599.95px) {
+  .container {
+    padding: var(--space-3) !important;
+  }
+
+  .stepper {
+    gap: 0;
+  }
+
+  .stepper :global .MuiStep-root {
+    padding: 0 !important;
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 25%;
+    width: 25%;
+  }
+
+  .stepper :global .MuiTypography-root {
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+  }
+
+  .stepper :global .MuiStepConnector-root {
+    left: 0;
+    width: calc(100% - 50px);
+  }
+
+  .or {
+    padding: var(--space-1) var(--space-2);
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+}

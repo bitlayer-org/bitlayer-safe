@@ -1,0 +1,11 @@
+.txCreation,
+.txSummary {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  padding-right: 60px; /* to not overlap with the share link */
+}
+
+.txSummary {
+  border-top: 1px solid var(--color-border-light);
+}

@@ -1,0 +1,89 @@
+.container {
+  position: relative;
+  padding: var(--space-2);
+  border: 1px solid var(--color-warning-light);
+  display: grid;
+  align-items: center;
+  grid-template-columns: minmax(50px, 0.25fr) minmax(150px, 2fr) minmax(150px, 2fr) minmax(200px, 2fr) 1fr minmax(
+      170px,
+      1fr
+    );
+  grid-template-areas:
+    'nonce warning warning warning warning warning'
+    'line items items items items items';
+}
+
+.disclaimerContainer {
+  background-color: var(--color-warning-background);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--space-1);
+  flex: 1;
+}
+
+.disclaimerContainer a {
+  color: inherit;
+}
+
+.disclaimerContainer a > * {
+  text-decoration: underline;
+}
+
+.line {
+  border-left: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+  border-radius: 0 0 0 4px;
+  height: calc(100% - 29px);
+  width: 100%;
+  position: absolute;
+  top: 0;
+  margin-left: 9px;
+}
+
+.txItems {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+
+.txItems :global(.MuiAccordion-root) {
+  border-color: var(--color-border-light);
+}
+
+.txItems > div {
+  position: relative;
+}
+
+.txItems > div:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  border-top: 1px solid var(--color-border-light);
+  width: 40px;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.willBeReplaced {
+  filter: grayscale(1);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.willBeReplaced * {
+  text-decoration: line-through;
+}
+
+@media (max-width: 1024px) {
+  .line,
+  .txItems > div::before {
+    display: none;
+  }
+  .container {
+    gap: var(--space-1);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'nonce warning warning'
+      'items items items';
+  }
+}
