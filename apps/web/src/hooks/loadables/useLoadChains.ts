@@ -6,7 +6,7 @@ import { getConfigs } from '@/hooks/loadables/helpers/config'
 
 export const useLoadChains = (): AsyncResult<ChainInfo[]> => {
   const [data, error, loading] = useAsync<ChainInfo[]>(getConfigs, [])
-
+  
   // Log errors
   useEffect(() => {
     if (error) {

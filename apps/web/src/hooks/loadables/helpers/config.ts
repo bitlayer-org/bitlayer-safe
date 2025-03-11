@@ -1,21 +1,15 @@
 import type { ChainInfo } from '@safe-global/safe-gateway-typescript-sdk'
-
 import { GATEWAY_URL } from '@/config/gateway'
+import { bitlayerConfig } from '@/bitlayer/bitlayerConfig';
 
 export const getConfigs = async (): Promise<ChainInfo[]> => {
-  let allResults: ChainInfo[] = []
-  let url = `${GATEWAY_URL}/v1/chains`
-
-  while (url) {
-    const response = await fetch(url)
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`)
-    }
-    const data = await response.json()
-    const results = data.results || []
-    allResults = allResults.concat(results)
-    url = data.next
-  }
-
-  return allResults
+  const data = {	  
+    "count": 1,	  
+    "next": 1,
+    "previous": 1,	
+    "results": [	
+      bitlayerConfig	
+    ]	
+  };	
+  return (data.results as any) || [];
 }

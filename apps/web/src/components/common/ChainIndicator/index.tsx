@@ -8,6 +8,7 @@ import useChainId from '@/hooks/useChainId'
 import { Skeleton, Stack, Typography } from '@mui/material'
 import isEmpty from 'lodash/isEmpty'
 import FiatValue from '../FiatValue'
+import { getChainLogo } from '@/config/chains'
 
 type ChainIndicatorProps = {
   chainId?: string
@@ -56,7 +57,7 @@ const ChainIndicator = ({
       color: theme.textColor,
     }
   }, [chainConfig])
-
+  
   return noChains ? (
     <Skeleton width="100%" height="22px" variant="rectangular" sx={{ flexShrink: 0 }} />
   ) : chainConfig ? (
@@ -73,7 +74,7 @@ const ChainIndicator = ({
     >
       {showLogo && (
         <img
-          src={chainConfig.chainLogoUri ?? undefined}
+          src={getChainLogo(chainConfig.chainId)}
           alt={`${chainConfig.chainName} Logo`}
           width={24}
           height={24}

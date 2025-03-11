@@ -22,6 +22,7 @@ import NamedAddressInfo from '@/components/common/NamedAddressInfo'
 import css from './styles.module.css'
 import ErrorMessage from '@/components/tx/ErrorMessage'
 import { TxShareButton } from '../TxShareLink/TxShareButton'
+import TxCheckLink from '../TxCheckLink'
 import { ErrorBoundary } from '@sentry/react'
 import ExecuteTxButton from '@/components/transactions/ExecuteTxButton'
 import SignTxButton from '@/components/transactions/SignTxButton'
@@ -38,6 +39,10 @@ import { asError } from '@/services/exceptions/utils'
 import { POLLING_INTERVAL } from '@/config/constants'
 import { TxNote } from '@/features/tx-notes'
 import { TxShareBlock } from '../TxShareLink/TxShareBlock'
+import type { SafeConfig } from '@/hooks/useLocalConfig';
+import { LOCAL_CONFIG_KEY, fetchConfig } from '@/hooks/useLocalConfig'
+import useLocalStorage from '@/services/local-storage/useLocalStorage'
+
 
 export const NOT_AVAILABLE = 'n/a'
 
@@ -79,6 +84,14 @@ const TxDetailsBlock = ({ txSummary, txDetails }: TxDetailsProps): ReactElement 
   // Module address, name and logoUri
   const moduleAddress = isModuleExecutionInfo(txSummary.executionInfo) ? txSummary.executionInfo.address : undefined
   const moduleAddressInfo = moduleAddress ? txDetails.txData?.addressInfoIndex?.[moduleAddress.value] : undefined
+  
+  const [localConfig,setLocalConfig]= useLocalStorage<SafeConfig>(LOCAL_CONFIG_KEY)
+
+  useEffect(()=>{
+    if(!localConfig?.checkSafeHref){
+      fetchConfig(setLocalConfig)
+    }
+  },[])
 
   return (
     <>
@@ -90,6 +103,7 @@ const TxDetailsBlock = ({ txSummary, txDetails }: TxDetailsProps): ReactElement 
 
         <div className={css.shareLink}>
           <TxShareButton txId={txSummary.id} />
+          {safeTxHash &&  <TxCheckLink safeHash={safeTxHash} />}
         </div>
 
         <div className={css.txData}>

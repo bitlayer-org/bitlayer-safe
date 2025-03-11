@@ -12,6 +12,7 @@ import semverSatisfies from 'semver/functions/satisfies'
 import { isValidMasterCopy } from '@/services/contracts/safeContracts'
 import { sameAddress } from '@/utils/addresses'
 import { isPredictedSafeProps, isReplayedSafeProps } from '@/features/counterfactual/utils'
+import { contractNetworks } from '@/bitlayer/bitlayerSafe'
 
 export const isLegacyVersion = (safeVersion: string): boolean => {
   const LEGACY_VERSION = '<1.3.0'
@@ -87,15 +88,18 @@ export const initSafeSDK = async ({
         provider: provider._getConnection().url,
         isL1SafeSingleton,
         predictedSafe: undeployedSafe.props,
+        contractNetworks
       })
     }
     // We cannot initialize a Core SDK for replayed Safes yet.
     return
   }
+  
   return Safe.init({
     provider: provider._getConnection().url,
     safeAddress: address,
     isL1SafeSingleton,
+    contractNetworks
   })
 }
 

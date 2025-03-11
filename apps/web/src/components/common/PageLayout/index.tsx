@@ -13,6 +13,9 @@ import BatchSidebar from '@/components/batch/BatchSidebar'
 import { TemporaryDialog } from '@/components/common/TemporaryDialog'
 import ExternalLink from '../ExternalLink'
 import { IS_PRODUCTION } from '@/config/constants'
+import { MaintenanceWarning } from '@/components/transactions/Warning'
+import useLocalStorage from '@/services/local-storage/useLocalStorage'
+import { LOCAL_CONFIG_KEY, type SafeConfig } from '@/hooks/useLocalConfig'
 
 const StickyBanner = () => (
   <Alert severity="warning">
@@ -29,6 +32,7 @@ const PageLayout = ({ pathname, children }: { pathname: string; children: ReactE
   const [isSidebarOpen, setSidebarOpen] = useState<boolean>(true)
   const [isBatchOpen, setBatchOpen] = useState<boolean>(false)
   const { setFullWidth } = useContext(TxModalContext)
+  const [localConfig] = useLocalStorage<SafeConfig>(LOCAL_CONFIG_KEY)
 
   useEffect(() => {
     setFullWidth(!isSidebarOpen)
@@ -48,6 +52,7 @@ const PageLayout = ({ pathname, children }: { pathname: string; children: ReactE
           [css.mainAnimated]: isSidebarRoute && isAnimated,
         })}
       >
+        {localConfig?.showNotice && <MaintenanceWarning notice={localConfig.noticeStr} />}
         <div className={css.content}>
           {IS_PRODUCTION && (
             <div className={css.sticky}>

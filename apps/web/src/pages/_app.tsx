@@ -48,6 +48,7 @@ import GeoblockingProvider from '@/components/common/GeoblockingProvider'
 import { useVisitedSafes } from '@/features/myAccounts/hooks/useVisitedSafes'
 import OutreachPopup from '@/features/targetedOutreach/components/OutreachPopup'
 import { GATEWAY_URL } from '@/config/gateway'
+import useLocalConfig from '@/hooks/useLocalConfig'
 
 const reduxStore = makeStore()
 
@@ -72,7 +73,8 @@ const InitApp = (): null => {
   useSafeMsgTracking()
   useBeamer()
   useVisitedSafes()
-
+  useLocalConfig()
+  
   return null
 }
 
