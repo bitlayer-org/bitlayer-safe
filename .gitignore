@@ -42,8 +42,8 @@ yarn-error.log*
 
 # local env files
 
-.env.local
-.env.local*
+# .env.local
+# .env.local*
 .env.development.local
 .env.test.local
 .env.production.local
@@ -75,8 +75,8 @@ apps/web/tsconfig.tsbuildinfo
 node_modules/*
 out/*
 tsconfig.tsbuildinfo
-apps/web/.env
+# apps/web/.env
 apps/web/node_modules/*
 apps/web/public/fallback-development.js
-apps/web/.env
+# apps/web/.env
 apps/web/src/types/contracts/*

@@ -24,17 +24,14 @@ export type ConnectedWallet = {
   isProposer?: boolean
 }
 
-const { getStore, setStore, useStore } = new ExternalStore<OnboardAPI>()
+const { setStore, useStore } = new ExternalStore<OnboardAPI>()
 
 export const initOnboard = async (
-  chainConfigs: ChainInfo[],
   currentChain: ChainInfo,
   rpcConfig: EnvState['rpc'] | undefined,
 ) => {
   const { createOnboard } = await import('@/services/onboard')
-  if (!getStore()) {
-    setStore(createOnboard(chainConfigs, currentChain, rpcConfig))
-  }
+  setStore(createOnboard(currentChain, rpcConfig))
 }
 
 // Get the most recently connected wallet address
@@ -156,16 +153,17 @@ const saveLastWallet = (walletLabel: string) => {
 
 // Disable/enable wallets according to chain
 export const useInitOnboard = () => {
-  const { configs } = useChains()
   const chain = useCurrentChain()
   const onboard = useStore()
   const customRpc = useAppSelector(selectRpc)
 
   useEffect(() => {
-    if (configs.length > 0 && chain) {
-      void initOnboard(configs, chain, customRpc)
+    if (chain) {
+      initOnboard(chain, customRpc).catch((e) => {
+        logError(Errors._302, e)
+      })
     }
-  }, [configs, chain, customRpc])
+  }, [chain, customRpc])
 
   // Disable unsupported wallets on the current chain
   useEffect(() => {
@@ -173,7 +171,7 @@ export const useInitOnboard = () => {
 
     const enableWallets = async () => {
       const { getSupportedWallets } = await import('@/hooks/wallets/wallets')
-      const supportedWallets = getSupportedWallets(chain)
+      const supportedWallets = await getSupportedWallets(chain)
       onboard.state.actions.setWalletModules(supportedWallets)
     }
 
