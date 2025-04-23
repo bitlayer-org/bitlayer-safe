@@ -21,7 +21,7 @@ const TxCheckLink = ({ safeHash }: { safeHash: string }): ReactElement => {
   return (
     <Track {...TX_LIST_EVENTS.COPY_DEEPLINK}>
       <Tooltip
-        title={'Check the transaction'}
+        title="Check the transaction"
         open={showTooltip}
         onOpen={() => setShowTooltip(true)}
         onClose={() => setShowTooltip(false)}
@@ -31,7 +31,7 @@ const TxCheckLink = ({ safeHash }: { safeHash: string }): ReactElement => {
           exit: false,
         }}
       >
-        <a href={txUrl} target='_blank' style={{ cursor: 'pointer' }}>
+        <a href={txUrl} target="_blank" style={{ cursor: 'pointer' }}>
           <IconButton data-testid="check-btn" component={Link} aria-label="Check">
             <SvgIcon component={LinkIcon} inheritViewBox fontSize="small" color="border" />
           </IconButton>

@@ -1,7 +1,7 @@
 import ChainIndicator from '@/components/common/ChainIndicator'
 import { useDarkMode } from '@/hooks/useDarkMode'
 import { useTheme } from '@mui/material/styles'
-import { FormControl, InputLabel, ListSubheader, MenuItem, Select, Typography } from '@mui/material'
+import { FormControl, InputLabel, /* ListSubheader, */ MenuItem, Select, Typography } from '@mui/material'
 import partition from 'lodash/partition'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import css from './styles.module.css'

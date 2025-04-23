@@ -10,7 +10,6 @@ import {
   getPushNotificationPrefsKey,
   createPushNotificationPrefsIndexedDb,
 } from '@/services/push-notifications/preferences'
-import { FIREBASE_IS_PRODUCTION } from '@/services/push-notifications/firebase'
 import { Notifications } from './notification-mapper'
 import type { WebhookEvent } from './webhook-types'
 import type { PushNotificationPreferences, PushNotificationPrefsKey } from '@/services/push-notifications/preferences'

@@ -68,7 +68,7 @@ export const DelegateCallWarning = ({ showWarning }: { showWarning: boolean }): 
 export const MaintenanceWarning = ({ notice }: { notice: string }): ReactElement => {
   return (
     <Warning
-      title={''}
+      title=""
       className={css.maintenance}
       svgClass={css.maintenanceSvgIcon}
       datatestid="maintenance-warning"
