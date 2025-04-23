@@ -10,27 +10,32 @@ import { maybePlural } from '@safe-global/utils/utils/formatters'
 import { useIsOfficialFallbackHandler } from '@/hooks/useIsOfficialFallbackHandler'
 import { useIsTWAPFallbackHandler } from '@/features/swap/hooks/useIsTWAPFallbackHandler'
 import { UntrustedFallbackHandlerTxText } from '@/components/tx/confirmation-views/SettingsChange/UntrustedFallbackHandlerTxAlert'
+import classNames from 'classnames'
 
 const Warning = ({
   datatestid,
   title,
   text,
   severity,
+  className = '',
+  svgClass = '',
 }: {
   datatestid?: String
   title: string | ReactElement
   text: string
   severity: AlertColor
+  className?: string
+  svgClass?: string
 }): ReactElement => {
   return (
     <Tooltip data-testid={datatestid} title={title} placement="top-start" arrow>
       <Alert
-        className={css.alert}
+        className={classNames(css.alert, className)}
         sx={{ borderLeft: ({ palette }) => `3px solid ${palette[severity].main} !important`, alignItems: 'center' }}
         severity={severity}
-        icon={<SvgIcon component={InfoOutlinedIcon} inheritViewBox color={severity} />}
+        icon={<SvgIcon className={svgClass} component={InfoOutlinedIcon} inheritViewBox color={severity} />}
       >
-        <b>{text}</b>
+        {text}
       </Alert>
     </Tooltip>
   )
@@ -41,6 +46,8 @@ export const DelegateCallWarning = ({ showWarning }: { showWarning: boolean }): 
   return (
     <Warning
       datatestid="delegate-call-warning"
+      className={css.delegateCall}
+      svgClass={css.svgIcon}
       title={
         <>
           This transaction calls a smart contract that will be able to modify your Safe Account.
@@ -54,6 +61,19 @@ export const DelegateCallWarning = ({ showWarning }: { showWarning: boolean }): 
       }
       severity={severity}
       text={showWarning ? 'Unexpected delegate call' : 'Delegate call'}
+    />
+  )
+}
+
+export const MaintenanceWarning = ({ notice }: { notice: string }): ReactElement => {
+  return (
+    <Warning
+      title={''}
+      className={css.maintenance}
+      svgClass={css.maintenanceSvgIcon}
+      datatestid="maintenance-warning"
+      severity="warning"
+      text={notice || ''}
     />
   )
 }

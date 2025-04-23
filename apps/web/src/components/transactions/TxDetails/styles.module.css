@@ -16,6 +16,7 @@
   justify-content: flex-end;
   margin: var(--space-1);
   margin-bottom: -40px;
+  gap: 6px;
 }
 
 .txNote {
@@ -72,7 +73,7 @@
   gap: var(--space-1);
 }
 
-.buttons > * {
+.buttons>* {
   flex: 1;
 }
 

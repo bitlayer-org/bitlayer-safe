@@ -8,25 +8,23 @@ import { BRAND_NAME } from '@/config/constants'
 
 let onboard: OnboardAPI | null = null
 
-export const createOnboard = (
-  chainConfigs: ChainInfo[],
-  currentChain: ChainInfo,
-  rpcConfig: EnvState['rpc'] | undefined,
-): OnboardAPI => {
+export const createOnboard = (currentChain: ChainInfo, rpcConfig: EnvState['rpc'] | undefined): OnboardAPI => {
   if (onboard) return onboard
 
   const wallets = getAllWallets(currentChain)
 
-  const chains = chainConfigs.map((cfg) => ({
-    // We cannot use ethers' toBeHex here as we do not want to pad it to an even number of characters.
-    id: numberToHex(parseInt(cfg.chainId)),
-    label: cfg.chainName,
-    rpcUrl: rpcConfig?.[cfg.chainId] || getRpcServiceUrl(cfg.rpcUri),
-    token: cfg.nativeCurrency.symbol,
-    color: cfg.theme.backgroundColor,
-    publicRpcUrl: cfg.publicRpcUri.value,
-    blockExplorerUrl: new URL(cfg.blockExplorerUriTemplate.address).origin,
-  }))
+  const chains = [
+    {
+      // We cannot use ethers' toBeHex here as we do not want to pad it to an even number of characters.
+      id: numberToHex(parseInt(currentChain.chainId)),
+      label: currentChain.chainName,
+      rpcUrl: rpcConfig?.[currentChain.chainId] || getRpcServiceUrl(currentChain.rpcUri),
+      token: currentChain.nativeCurrency.symbol,
+      color: currentChain.theme.backgroundColor,
+      publicRpcUrl: currentChain.publicRpcUri.value,
+      blockExplorerUrl: new URL(currentChain.blockExplorerUriTemplate.address).origin,
+    },
+  ]
 
   onboard = Onboard({
     wallets,
@@ -50,7 +48,7 @@ export const createOnboard = (
 
     connect: {
       removeWhereIsMyWalletWarning: true,
-      autoConnectLastWallet: false,
+      autoConnectLastWallet: true,
     },
   })
 

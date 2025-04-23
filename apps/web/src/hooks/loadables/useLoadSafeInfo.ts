@@ -34,6 +34,7 @@ export const useLoadSafeInfo = (): AsyncResult<SafeInfo> => {
   const [cgwData, cgwError, cgwLoading] = useAsync<SafeInfo | undefined>(async () => {
     if (!chainId || !address || pollCount === undefined) return
     const safeInfo = await getSafeInfo(chainId, address)
+    /* isneed xiesi */
     return { ...safeInfo, deployed: true }
   }, [chainId, address, pollCount])
 

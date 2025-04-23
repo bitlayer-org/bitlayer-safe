@@ -80,7 +80,7 @@ const NetworkInput = ({
           >
             {prodNets.map((chain) => renderMenuItem(chain.chainId, !chain.available))}
 
-            {testNets.length > 0 && <ListSubheader className={css.listSubHeader}>Testnets</ListSubheader>}
+            {/* {testNets.length > 0 && <ListSubheader className={css.listSubHeader}>Testnets</ListSubheader>} */}
 
             {testNets.map((chain) => renderMenuItem(chain.chainId, !chain.available))}
           </Select>

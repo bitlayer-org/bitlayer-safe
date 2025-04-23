@@ -38,6 +38,9 @@ import { POLLING_INTERVAL } from '@/config/constants'
 import { TxNote } from '@/features/tx-notes'
 import { TxShareBlock } from '../TxShareLink'
 import { TxShareButton } from '../TxShareLink/TxShareButton'
+import TxCheckLink from '../TxCheckLink'
+import { LOCAL_CONFIG_KEY, fetchConfig, type SafeConfig } from '@/hooks/useLocalConfig'
+import useLocalStorage from '@/services/local-storage/useLocalStorage'
 
 export const NOT_AVAILABLE = 'n/a'
 
@@ -80,6 +83,15 @@ const TxDetailsBlock = ({ txSummary, txDetails }: TxDetailsProps): ReactElement 
   const moduleAddress = isModuleExecutionInfo(txSummary.executionInfo) ? txSummary.executionInfo.address : undefined
   const moduleAddressInfo = moduleAddress ? txDetails.txData?.addressInfoIndex?.[moduleAddress.value] : undefined
 
+  const [localConfig, setLocalConfig] = useLocalStorage<SafeConfig>(LOCAL_CONFIG_KEY)
+
+  useEffect(() => {
+    if (!localConfig?.checkSafeHref) {
+      fetchConfig(setLocalConfig)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <>
       {/* /Details */}
@@ -90,6 +102,7 @@ const TxDetailsBlock = ({ txSummary, txDetails }: TxDetailsProps): ReactElement 
 
         <div className={css.shareLink}>
           <TxShareButton txId={txSummary.id} />
+          {safeTxHash && <TxCheckLink safeHash={safeTxHash} />}
         </div>
 
         <div className={css.txData}>
