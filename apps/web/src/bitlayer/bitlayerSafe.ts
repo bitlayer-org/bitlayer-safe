@@ -13,6 +13,7 @@ const defaultL2Addresses = {
   safeSingletonAddress: '0x3E5c63644E683549055b9Be8653de26E0B4CD36E',
   simulateTxAccessorAddress: '0x59AD6735bCd8152B84860Cb256dD9e96b85F69Da',
 }
+
 const bitlayerMainnet = {
   id: 200901 as const,
   name: 'Bitlayer Mainnet',

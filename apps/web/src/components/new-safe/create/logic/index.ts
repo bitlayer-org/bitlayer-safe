@@ -28,7 +28,6 @@ import { getSafeContractDeployment } from '@/services/contracts/deployments'
 import { Safe__factory, Safe_proxy_factory__factory, Safe_to_l2_setup__factory } from '@/types/contracts'
 import { createWeb3 } from '@/hooks/wallets/web3'
 import { hasMultiChainCreationFeatures } from '@/features/multichain/utils/utils'
-import { contractNetworks } from '@/bitlayer/bitlayerSafe'
 
 export type SafeCreationProps = {
   owners: string[]
@@ -44,7 +43,7 @@ const getSafeFactory = async (
   if (!isValidSafeVersion(safeVersion)) {
     throw new Error('Invalid Safe version')
   }
-  return SafeFactory.init({ provider, safeVersion, isL1SafeSingleton, contractNetworks })
+  return SafeFactory.init({ provider, safeVersion, isL1SafeSingleton })
 }
 
 /**
