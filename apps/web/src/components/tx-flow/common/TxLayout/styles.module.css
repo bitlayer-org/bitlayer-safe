@@ -40,7 +40,7 @@
   margin-top: var(--space-3);
 }
 
-.step :global(.MuiCardActions-root) > * {
+.step :global(.MuiCardActions-root)>* {
   align-self: flex-end;
 }
 
@@ -166,5 +166,19 @@
 
   .statusButton {
     display: inline-flex;
+  }
+}
+
+
+@media (max-width: 420px) {
+
+  .titleWrapper {
+    top: 13px;
+  }
+
+  .title {
+    max-width: 150px;
+    font-size: 12px;
+    line-height: 14px;
   }
 }

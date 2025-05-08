@@ -16,7 +16,10 @@ export const useTxBuilderApp = (): { app?: SafeAppData; link: UrlObject } | unde
   }
 
   return {
-    app,
+    app: {
+      ...app,
+      iconUrl: '/images/networks/bitlayer.svg',
+    },
     link: {
       pathname: AppRoutes.apps.open,
       query: { safe: router.query.safe, appUrl: app?.url },

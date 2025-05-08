@@ -34,9 +34,11 @@
   .indicator {
     min-width: 35px;
   }
+
   .responsive {
     min-width: 0;
   }
+
   .responsive .name {
     display: none;
   }
@@ -46,7 +48,23 @@
   .responsive {
     min-width: 0;
   }
+
   .responsive .name {
     display: none;
+  }
+}
+
+@media (max-width: 420px) {
+
+  .withLogo {
+    max-width: 76px;
+    min-width: auto;
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .logoImg {
+    width: 20px;
+    height: 20px;
   }
 }
