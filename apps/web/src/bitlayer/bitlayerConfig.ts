@@ -75,6 +75,7 @@ export const bitlayerConfig = {
     FEATURES.COUNTERFACTUAL,
     FEATURES.NATIVE_WALLETCONNECT,
   ],
+  newsafe: true,
 }
 
 export const bitlayerTestnetConfig = {
@@ -150,4 +151,5 @@ export const bitlayerTestnetConfig = {
     FEATURES.COUNTERFACTUAL,
     FEATURES.NATIVE_WALLETCONNECT,
   ],
+  newsafe: true,
 }
