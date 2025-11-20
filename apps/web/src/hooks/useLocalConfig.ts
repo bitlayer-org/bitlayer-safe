@@ -10,10 +10,21 @@ export interface SafeConfig {
 }
 
 export const fetchConfig = async (updateFn: (value: SafeConfig) => void) => {
-  const response = await fetch('https://bl-ops-tools.s3.ap-southeast-1.amazonaws.com/checkSafeHash.json')
-  const result = await response.json()
-  if (result) {
-    updateFn(result)
+  const defaultConfig = {
+    href: 'https://safe-checker.bitlayer.org/analysis',
+    checkSafeHref: 'https://safe-checker.bitlayer.org/analysis',
+    noticeStr:
+      'We will perform system upgrades and maintenance for the Bitlayer Multisig Wallet from 09:00 to 10:00 UTC on June 20, 2025. During this period, the wallet service will be temporarily unavailable. We sincerely apologize for any inconvenience this may cause and appreciate your patience and understanding.',
+    showNotice: false,
+  }
+  try {
+    const response = await fetch('https://bl-ops-tools.s3.ap-southeast-1.amazonaws.com/checkSafeHash.json')
+    const result = await response.json()
+    if (result) {
+      updateFn(result)
+    }
+  } catch (error) {
+    updateFn(defaultConfig)
   }
 }
 

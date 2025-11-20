@@ -81,6 +81,7 @@ export const initSafeSDK = async ({
     isL1SafeSingleton = true
   }
 
+  console.log(9991, 'initSafeSDK-undeployedSafe', undeployedSafe)
   if (undeployedSafe) {
     if (isPredictedSafeProps(undeployedSafe.props) || isReplayedSafeProps(undeployedSafe.props)) {
       return Safe.init({

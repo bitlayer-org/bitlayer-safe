@@ -22,12 +22,14 @@ enum AdvancedOptionsFields {
   safeVersion = 'safeVersion',
   saltNonce = 'saltNonce',
   paymentReceiver = 'paymentReceiver',
+  deploymentType = 'deploymentType',
 }
 
 export type AdvancedOptionsStepForm = {
   [AdvancedOptionsFields.safeVersion]: SafeVersion
   [AdvancedOptionsFields.saltNonce]: number
   [AdvancedOptionsFields.paymentReceiver]: string
+  [AdvancedOptionsFields.deploymentType]: string
 }
 
 const ADVANCED_OPTIONS_STEP_FORM_ID = 'create-safe-advanced-options-step-form'
@@ -39,7 +41,10 @@ const AdvancedOptionsStep = ({ onSubmit, onBack, data, setStep }: StepRenderProp
 
   const formMethods = useForm<AdvancedOptionsStepForm>({
     mode: 'onChange',
-    defaultValues: data,
+    defaultValues: {
+      ...data,
+      deploymentType: 'canonical',
+    },
   })
 
   const { handleSubmit, control, watch, formState, getValues, register } = formMethods
@@ -47,6 +52,7 @@ const AdvancedOptionsStep = ({ onSubmit, onBack, data, setStep }: StepRenderProp
   const selectedSafeVersion = watch(AdvancedOptionsFields.safeVersion)
   const selectedSaltNonce = watch(AdvancedOptionsFields.saltNonce)
   const selectedPaymentReceiver = watch(AdvancedOptionsFields.paymentReceiver)
+  const selectedDeploymentType = watch(AdvancedOptionsFields.deploymentType)
 
   const newSafeProps = useMemo(
     () =>
@@ -57,11 +63,12 @@ const AdvancedOptionsStep = ({ onSubmit, onBack, data, setStep }: StepRenderProp
               owners: data.owners.map((owner) => owner.address),
               threshold: data.threshold,
               paymentReceiver: selectedPaymentReceiver,
+              // deploymentType: selectedDeploymentType,
             },
             chain,
           )
         : undefined,
-    [chain, data.owners, data.threshold, selectedSafeVersion, selectedPaymentReceiver],
+    [chain, data.owners, data.threshold, selectedSafeVersion, selectedPaymentReceiver, selectedDeploymentType],
   )
 
   const [predictedSafeAddress] = useAsync(async () => {
@@ -85,6 +92,7 @@ const AdvancedOptionsStep = ({ onSubmit, onBack, data, setStep }: StepRenderProp
   }
 
   const onFormSubmit = handleSubmit((data) => {
+    console.log(7771, 'onFormSubmit-data', data)
     onSubmit(data)
 
     // TODO: Tracking of advanced setup
@@ -213,6 +221,45 @@ const AdvancedOptionsStep = ({ onSubmit, onBack, data, setStep }: StepRenderProp
               }
               fullWidth
             />
+
+            <div className="safe-deployment-type">
+              <Typography
+                variant="h5"
+                sx={{
+                  fontWeight: 700,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 1,
+                  mt: 4,
+                  width: 1,
+                }}
+              >
+                Deployment type
+                <Tooltip
+                  title="The Safe deployment type to use. It can be canonical, eip155. Default is canonical."
+                  arrow
+                  placement="top"
+                >
+                  <span style={{ display: 'flex' }}>
+                    <SvgIcon component={InfoIcon} inheritViewBox color="border" fontSize="small" />
+                  </span>
+                </Tooltip>
+              </Typography>
+              <Typography variant="body2" mb={2}>
+                Changing this value affects the search algorithm used to find the Safe deployment address for any Safe
+                contract, resulting in a change to the predicted address.
+              </Typography>
+              <Controller
+                control={control}
+                name="deploymentType"
+                render={({ field }) => (
+                  <TextField select {...field} label="Safe deployment type" fullWidth>
+                    <MenuItem value="canonical">Canonical</MenuItem>
+                    <MenuItem value="eip155">EIP155</MenuItem>
+                  </TextField>
+                )}
+              />
+            </div>
           </Box>
 
           <Divider />

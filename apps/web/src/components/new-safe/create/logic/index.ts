@@ -86,6 +86,7 @@ export const computeNewSafeAddress = async (
     safeDeploymentConfig: {
       saltNonce: props.saltNonce,
       safeVersion: safeVersion ?? getLatestSafeVersion(chain),
+      // deploymentType: 'canonical',
     },
   })
 }

@@ -46,6 +46,7 @@ export const getNestedWallet = (
     },
 
     async send(params) {
+      console.log(9992, 'nestedSafeSdk-send-safeInfo', safeInfo)
       const safeCoreSDK = await initSafeSDK({
         provider: web3ReadOnly,
         chainId: safeInfo.chainId,
